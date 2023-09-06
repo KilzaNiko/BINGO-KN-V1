@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        td.marked {
+            background-color: #339966;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            width: 60px;
+            text-transform: uppercase;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bingo Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>B</th>
+                <th>I</th>
+                <th>N</th>
+                <th>G</th>
+                <th>O</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $number = 1;
+            for ($row = 1; $row <= 5; $row++) {
+                echo "<tr>";
+                for ($col = 1; $col <= 5; $col++) {
+                    echo "<td data-number='$number'>$number</td>";
+                    $number++;
+                }
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+    <label for="bingoInput">Ingrese número (ejemplo: B2): </label>
+    <input type="text" id="bingoInput" maxlength="2">
+    <button onclick="markNumber()">Marcar</button>
+    <button onclick="resetTable()">Reiniciar</button>
+
+    <script>
+        function markNumber() {
+            const input = document.getElementById('bingoInput').value.toUpperCase();
+            const td = document.querySelector(`td[data-number="${input.substring(1)}"]`);
+            if (td && !td.classList.contains('marked')) {
+                td.classList.add('marked');
+            }
+        }
+
+        function resetTable() {
+            const markedCells = document.querySelectorAll('td.marked');
+            markedCells.forEach((cell) => {
+                cell.classList.remove('marked');
+            });
+        }
+    </script>
+</body>
+</html>
