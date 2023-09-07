@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BINGO Table</title>
+    <title>Tablero BINGO</title>
     <style>
         body {
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #b3b1b1; /* Fondo blanco */
         }
 
         table {
@@ -134,5 +134,15 @@
             </tr>
         </tbody>
     </table>
+
+    <script>
+        // Llenar las celdas con números del 1 al 75 (excepto la primera fila)
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= 15; j++) {
+                const cellId = (i - 1) * 15 + j;
+                document.getElementById(cellId.toString()).textContent = cellId;
+            }
+        }
+    </script>
 </body>
 </html>
