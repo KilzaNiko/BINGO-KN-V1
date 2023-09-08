@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero BINGO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background: linear-gradient(to bottom, #9370DB, #00BFFF); /* Fondo degradado entre celeste y morado */
@@ -17,8 +18,8 @@
         }
 
         table {
-            border-collapse: collapse;
             margin: 20px auto;
+            background-color: transparent; /* Fondo de la tabla transparente */
         }
 
         td {
@@ -41,132 +42,127 @@
 
         /* Estilo para el número en estado activo */
         td.active {
-            background-color: #3d3d3d; /* Fondo amarillo en estado activo */
+            background-color: #383837; /* Fondo amarillo en estado activo */
             color: #ffffff; /* Texto blanco */
         }
 
-        input[type="text"] {
-            padding: 5px;
-            margin: 10px;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
+        /* Estilo para el grupo de entrada de Bootstrap */
+        .input-group {
+            margin-top: 10px;
         }
-
-        button {
-            padding: 5px 10px;
-            margin: 10px;
-            border: none;
-            background-color: #9370DB; /* Morado claro */
-            color: #ffffff; /* Texto blanco */
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #00BFFF; /* Celeste al hacer hover */
-        }
+    </style>
     </style>
 </head>
 <body>
-    <table border="1">
-        <tbody>
-            <tr>
-                <td id="B">B</td>
-                <td class="number" id="1"></td>
-                <td class="number" id="2"></td>
-                <td class="number" id="3"></td>
-                <td class="number" id="4"></td>
-                <td class="number" id="5"></td>
-                <td class="number" id="6"></td>
-                <td class="number" id="7"></td>
-                <td class="number" id="8"></td>
-                <td class="number" id="9"></td>
-                <td class="number" id="10"></td>
-                <td class="number" id="11"></td>
-                <td class="number" id="12"></td>
-                <td class="number" id="13"></td>
-                <td class="number" id="14"></td>
-                <td class="number" id="15"></td>
-            </tr>
-            <tr>
-                <td class="number" id="I">I</td>
-                <td class="number" id="16"></td>
-                <td class="number" id="17"></td>
-                <td class="number" id="18"></td>
-                <td class="number" id="19"></td>
-                <td class="number" id="20"></td>
-                <td class="number" id="21"></td>
-                <td class="number" id="22"></td>
-                <td class="number" id="23"></td>
-                <td class="number" id="24"></td>
-                <td class="number" id="25"></td>
-                <td class="number" id="26"></td>
-                <td class="number" id="27"></td>
-                <td class="number" id="28"></td>
-                <td class="number" id="29"></td>
-                <td class="number" id="30"></td>
-            </tr>
-            <tr>
-                <td class="number" id="N">N</td>
-                <td class="number" id="31"></td>
-                <td class="number" id="32"></td>
-                <td class="number" id="33"></td>
-                <td class="number" id="34"></td>
-                <td class="number" id="35"></td>
-                <td class="number" id="36"></td>
-                <td class="number" id="37"></td>
-                <td class="number" id="38"></td>
-                <td class="number" id="39"></td>
-                <td class="number" id="40"></td>
-                <td class="number" id="41"></td>
-                <td class="number" id="42"></td>
-                <td class="number" id="43"></td>
-                <td class="number" id="44"></td>
-                <td class="number" id="45"></td>
-            </tr>
-            <tr>
-                <td class="number" id="G">G</td>
-                <td class="number" id="46"></td>
-                <td class="number" id="47"></td>
-                <td class="number" id="48"></td>
-                <td class="number" id="49"></td>
-                <td class="number" id="50"></td>
-                <td class="number" id="51"></td>
-                <td class="number" id="52"></td>
-                <td class="number" id="53"></td>
-                <td class="number" id="54"></td>
-                <td class="number" id="55"></td>
-                <td class="number" id="56"></td>
-                <td class="number" id="57"></td>
-                <td class="number" id="58"></td>
-                <td class="number" id="59"></td>
-                <td class="number" id="60"></td>
-            </tr>
-            <tr>
-                <td class="number" id="O">O</td>
-                <td class="number" id="61"></td>
-                <td class="number" id="62"></td>
-                <td class="number" id="63"></td>
-                <td class="number" id="64"></td>
-                <td class="number" id="65"></td>
-                <td class="number" id="66"></td>
-                <td class="number" id="67"></td>
-                <td class="number" id="68"></td>
-                <td class="number" id="69"></td>
-                <td class="number" id="70"></td>
-                <td class="number" id="71"></td>
-                <td class="number" id="72"></td>
-                <td class="number" id="73"></td>
-                <td class="number" id="74"></td>
-                <td class="number" id="75"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td id="B">B</td>
+                            <td class="number" id="1"></td>
+                            <td class="number" id="2"></td>
+                            <td class="number" id="3"></td>
+                            <td class="number" id="4"></td>
+                            <td class="number" id="5"></td>
+                            <td class="number" id="6"></td>
+                            <td class="number" id="7"></td>
+                            <td class="number" id="8"></td>
+                            <td class="number" id="9"></td>
+                            <td class="number" id="10"></td>
+                            <td class="number" id="11"></td>
+                            <td class="number" id="12"></td>
+                            <td class="number" id="13"></td>
+                            <td class="number" id="14"></td>
+                            <td class="number" id="15"></td>
+                        </tr>
+                        <tr>
+                            <td class="number" id="I">I</td>
+                            <td class="number" id="16"></td>
+                            <td class="number" id="17"></td>
+                            <td class="number" id="18"></td>
+                            <td class="number" id="19"></td>
+                            <td class="number" id="20"></td>
+                            <td class="number" id="21"></td>
+                            <td class="number" id="22"></td>
+                            <td class="number" id="23"></td>
+                            <td class="number" id="24"></td>
+                            <td class="number" id="25"></td>
+                            <td class="number" id="26"></td>
+                            <td class="number" id="27"></td>
+                            <td class="number" id="28"></td>
+                            <td class="number" id="29"></td>
+                            <td class="number" id="30"></td>
+                        </tr>
+                        <tr>
+                            <td class="number" id="N">N</td>
+                            <td class="number" id="31"></td>
+                            <td class="number" id="32"></td>
+                            <td class="number" id="33"></td>
+                            <td class="number" id="34"></td>
+                            <td class="number" id="35"></td>
+                            <td class="number" id="36"></td>
+                            <td class="number" id="37"></td>
+                            <td class="number" id="38"></td>
+                            <td class="number" id="39"></td>
+                            <td class="number" id="40"></td>
+                            <td class="number" id="41"></td>
+                            <td class="number" id="42"></td>
+                            <td class="number" id="43"></td>
+                            <td class="number" id="44"></td>
+                            <td class="number" id="45"></td>
+                        </tr>
+                        <tr>
+                            <td class="number" id="G">G</td>
+                            <td class="number" id="46"></td>
+                            <td class="number" id="47"></td>
+                            <td class="number" id="48"></td>
+                            <td class="number" id="49"></td>
+                            <td class="number" id="50"></td>
+                            <td class="number" id="51"></td>
+                            <td class="number" id="52"></td>
+                            <td class="number" id="53"></td>
+                            <td class="number" id="54"></td>
+                            <td class="number" id="55"></td>
+                            <td class="number" id="56"></td>
+                            <td class="number" id="57"></td>
+                            <td class="number" id="58"></td>
+                            <td class="number" id="59"></td>
+                            <td class="number" id="60"></td>
+                        </tr>
+                        <tr>
+                            <td class="number" id="O">O</td>
+                            <td class="number" id="61"></td>
+                            <td class="number" id="62"></td>
+                            <td class="number" id="63"></td>
+                            <td class="number" id="64"></td>
+                            <td class="number" id="65"></td>
+                            <td class="number" id="66"></td>
+                            <td class="number" id="67"></td>
+                            <td class="number" id="68"></td>
+                            <td class="number" id="69"></td>
+                            <td class="number" id="70"></td>
+                            <td class="number" id="71"></td>
+                            <td class="number" id="72"></td>
+                            <td class="number" id="73"></td>
+                            <td class="number" id="74"></td>
+                            <td class="number" id="75"></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <input type="text" id="cellInput" placeholder="Ingrese identificador (p. ej., B12)">
-    <button onclick="changeCellState()">Cambiar Estado</button>
-    <button onclick="undoLastAction()">Deshacer</button>
-    <button onclick="resetAllCells()">Restablecer Todas</button>
+                <div class="input-group mb-3">
+                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese identificador (p. ej., B12)">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="changeCellState()">Cambiar Estado</button>
+                        <button class="btn btn-secondary" type="button" onclick="undoLastAction()">Deshacer</button>
+                        <button class="btn btn-danger" type="button" onclick="resetAllCells()">Restablecer Todas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Llenar las celdas con números del 1 al 75 (excepto la primera fila)
@@ -177,15 +173,7 @@
             }
         }
 
-        // Agregar un evento clic a las celdas de números para cambiar el estado
         const numberCells = document.querySelectorAll('.number');
-
-        numberCells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                cell.classList.toggle('active'); // Cambiar el estado al hacer clic
-            });
-        });
-
         const undoStack = [];
 
         function changeCellState() {
