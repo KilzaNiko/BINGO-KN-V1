@@ -183,10 +183,12 @@
                     </tbody>
                 </table>
 
-                <div class="input-container mx-auto col-md-6">
-                    <div class="input-group mb-3">
-                        <input type="text" id="cellInput" class="form-control" placeholder="Ingrese identificador (p. ej., B12)">
-                        <div class="input-group-append">
+                <div class="input-container mx-auto row">
+                    <div class="col-md-6">
+                        <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número (p. ej., B12)">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-4">
                             <button class="btn btn-primary" type="button" onclick="changeCellState()">Cambiar Estado</button>
                             <button class="btn btn-secondary" type="button" onclick="undoLastAction()">Deshacer</button>
                             <button class="btn btn-danger" type="button" onclick="resetAllCells()">Restablecer Todas</button>
