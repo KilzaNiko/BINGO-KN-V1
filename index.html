@@ -6,7 +6,7 @@
     <title>Tablero BINGO</title>
     <style>
         body {
-            background-color: #b3b1b1; /* Fondo blanco */
+            background-color: #ffffff; /* Fondo blanco */
         }
 
         table {
@@ -28,14 +28,19 @@
         }
 
         /* Estilo para los números */
-        td[id^="1"], td[id^="2"], td[id^="3"], td[id^="4"], td[id^="5"] {
-            background-color: #ffffff; /* Fondo blanco */
+        td.number {
+            background-color: #ffffff; /* Fondo blanco por defecto */
         }
 
         /* Estilo para el encabezado de la tabla */
         tr:first-child td {
             background-color: #ffffff; /* Fondo blanco */
             color: #000000; /* Texto negro */
+        }
+
+        /* Estilo para el número en estado activo */
+        td.active {
+            background-color: #FFD700; /* Fondo amarillo en estado activo */
         }
     </style>
 </head>
@@ -44,93 +49,93 @@
         <tbody>
             <tr>
                 <td id="B">B</td>
-                <td id="1"></td>
-                <td id="2"></td>
-                <td id="3"></td>
-                <td id="4"></td>
-                <td id="5"></td>
-                <td id="6"></td>
-                <td id="7"></td>
-                <td id="8"></td>
-                <td id="9"></td>
-                <td id="10"></td>
-                <td id="11"></td>
-                <td id="12"></td>
-                <td id="13"></td>
-                <td id="14"></td>
-                <td id="15"></td>
+                <td class="number" id="1"></td>
+                <td class="number" id="2"></td>
+                <td class="number" id="3"></td>
+                <td class="number" id="4"></td>
+                <td class="number" id="5"></td>
+                <td class="number" id="6"></td>
+                <td class="number" id="7"></td>
+                <td class="number" id="8"></td>
+                <td class="number" id="9"></td>
+                <td class="number" id="10"></td>
+                <td class="number" id="11"></td>
+                <td class="number" id="12"></td>
+                <td class="number" id="13"></td>
+                <td class="number" id="14"></td>
+                <td class="number" id="15"></td>
             </tr>
             <tr>
-                <td id="I">I</td>
-                <td id="16"></td>
-                <td id="17"></td>
-                <td id="18"></td>
-                <td id="19"></td>
-                <td id="20"></td>
-                <td id="21"></td>
-                <td id="22"></td>
-                <td id="23"></td>
-                <td id="24"></td>
-                <td id="25"></td>
-                <td id="26"></td>
-                <td id="27"></td>
-                <td id="28"></td>
-                <td id="29"></td>
-                <td id="30"></td>
+                <td class="number" id="I">I</td>
+                <td class="number" id="16"></td>
+                <td class="number" id="17"></td>
+                <td class="number" id="18"></td>
+                <td class="number" id="19"></td>
+                <td class="number" id="20"></td>
+                <td class="number" id="21"></td>
+                <td class="number" id="22"></td>
+                <td class="number" id="23"></td>
+                <td class="number" id="24"></td>
+                <td class="number" id="25"></td>
+                <td class="number" id="26"></td>
+                <td class="number" id="27"></td>
+                <td class="number" id="28"></td>
+                <td class="number" id="29"></td>
+                <td class="number" id="30"></td>
             </tr>
             <tr>
-                <td id="N">N</td>
-                <td id="31"></td>
-                <td id="32"></td>
-                <td id="33"></td>
-                <td id="34"></td>
-                <td id="35"></td>
-                <td id="36"></td>
-                <td id="37"></td>
-                <td id="38"></td>
-                <td id="39"></td>
-                <td id="40"></td>
-                <td id="41"></td>
-                <td id="42"></td>
-                <td id="43"></td>
-                <td id="44"></td>
-                <td id="45"></td>
+                <td class="number" id="N">N</td>
+                <td class="number" id="31"></td>
+                <td class="number" id="32"></td>
+                <td class="number" id="33"></td>
+                <td class="number" id="34"></td>
+                <td class="number" id="35"></td>
+                <td class="number" id="36"></td>
+                <td class="number" id="37"></td>
+                <td class="number" id="38"></td>
+                <td class="number" id="39"></td>
+                <td class="number" id="40"></td>
+                <td class="number" id="41"></td>
+                <td class="number" id="42"></td>
+                <td class="number" id="43"></td>
+                <td class="number" id="44"></td>
+                <td class="number" id="45"></td>
             </tr>
             <tr>
-                <td id="G">G</td>
-                <td id="46"></td>
-                <td id="47"></td>
-                <td id="48"></td>
-                <td id="49"></td>
-                <td id="50"></td>
-                <td id="51"></td>
-                <td id="52"></td>
-                <td id="53"></td>
-                <td id="54"></td>
-                <td id="55"></td>
-                <td id="56"></td>
-                <td id="57"></td>
-                <td id="58"></td>
-                <td id="59"></td>
-                <td id="60"></td>
+                <td class="number" id="G">G</td>
+                <td class="number" id="46"></td>
+                <td class="number" id="47"></td>
+                <td class="number" id="48"></td>
+                <td class="number" id="49"></td>
+                <td class="number" id="50"></td>
+                <td class="number" id="51"></td>
+                <td class="number" id="52"></td>
+                <td class="number" id="53"></td>
+                <td class="number" id="54"></td>
+                <td class="number" id="55"></td>
+                <td class="number" id="56"></td>
+                <td class="number" id="57"></td>
+                <td class="number" id="58"></td>
+                <td class="number" id="59"></td>
+                <td class="number" id="60"></td>
             </tr>
             <tr>
-                <td id="O">O</td>
-                <td id="61"></td>
-                <td id="62"></td>
-                <td id="63"></td>
-                <td id="64"></td>
-                <td id="65"></td>
-                <td id="66"></td>
-                <td id="67"></td>
-                <td id="68"></td>
-                <td id="69"></td>
-                <td id="70"></td>
-                <td id="71"></td>
-                <td id="72"></td>
-                <td id="73"></td>
-                <td id="74"></td>
-                <td id="75"></td>
+                <td class="number" id="O">O</td>
+                <td class="number" id="61"></td>
+                <td class="number" id="62"></td>
+                <td class="number" id="63"></td>
+                <td class="number" id="64"></td>
+                <td class="number" id="65"></td>
+                <td class="number" id="66"></td>
+                <td class="number" id="67"></td>
+                <td class="number" id="68"></td>
+                <td class="number" id="69"></td>
+                <td class="number" id="70"></td>
+                <td class="number" id="71"></td>
+                <td class="number" id="72"></td>
+                <td class="number" id="73"></td>
+                <td class="number" id="74"></td>
+                <td class="number" id="75"></td>
             </tr>
         </tbody>
     </table>
@@ -143,6 +148,17 @@
                 document.getElementById(cellId.toString()).textContent = cellId;
             }
         }
+
+        // Agregar un evento clic a las celdas de números para cambiar el estado
+        const numberCells = document.querySelectorAll('.number');
+
+        numberCells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('active'); // Cambiar el estado al hacer clic
+            });
+        });
     </script>
+
+
 </body>
 </html>
