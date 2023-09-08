@@ -31,8 +31,28 @@
         }
 
         /* Estilo para las letras B, I, N, G, O */
-        td#B, td#I, td#N, td#G, td#O {
-            background-color: #9370DB; /* Morado claro */
+        td#B {
+            background-color: #9370DB; /* Morado claro para B */
+            color: #ffffff; /* Texto blanco */
+        }
+
+        td#I {
+            background-color: #FF6B6B; /* Rojo claro para I */
+            color: #ffffff; /* Texto blanco */
+        }
+
+        td#N {
+            background-color: #0061b0; /* Amarillo para N */
+            color: #ffffff; /* Texto blanco */
+        }
+
+        td#G {
+            background-color: #00FF7F; /* Verde claro para G */
+            color: #ffffff; /* Texto blanco */
+        }
+
+        td#O {
+            background-color: #87CEEB; /* Azul claro para O */
             color: #ffffff; /* Texto blanco */
         }
 
@@ -154,12 +174,14 @@
                     </tbody>
                 </table>
 
-                <div class="input-group mb-3">
-                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese identificador (p. ej., B12)">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" onclick="changeCellState()">Cambiar Estado</button>
-                        <button class="btn btn-secondary" type="button" onclick="undoLastAction()">Deshacer</button>
-                        <button class="btn btn-danger" type="button" onclick="resetAllCells()">Restablecer Todas</button>
+                <div class="input-container">
+                    <div class="input-group mb-3">
+                        <input type="text" id="cellInput" class="form-control" placeholder="Ingrese identificador (p. ej., B12)">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="changeCellState()">Cambiar Estado</button>
+                            <button class="btn btn-secondary" type="button" onclick="undoLastAction()">Deshacer</button>
+                            <button class="btn btn-danger" type="button" onclick="resetAllCells()">Restablecer Todas</button>
+                        </div>
                     </div>
                 </div>
             </div>
