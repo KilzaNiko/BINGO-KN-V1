@@ -6,7 +6,14 @@
     <title>Tablero BINGO</title>
     <style>
         body {
-            background-color: #ffffff; /* Fondo blanco */
+            background: linear-gradient(to bottom, #9370DB, #00BFFF); /* Fondo degradado entre celeste y morado */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         table {
@@ -32,16 +39,31 @@
             background-color: #ffffff; /* Fondo blanco por defecto */
         }
 
-        /* Estilo para el encabezado de la tabla */
-        tr:first-child td {
-            background-color: #ffffff; /* Fondo blanco */
-            color: #000000; /* Texto negro */
-        }
-
         /* Estilo para el número en estado activo */
         td.active {
-            background-color: #000000; /* Fondo amarillo en estado activo */
+            background-color: #3d3d3d; /* Fondo amarillo en estado activo */
             color: #ffffff; /* Texto blanco */
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin: 10px;
+            border: none;
+            background-color: #9370DB; /* Morado claro */
+            color: #ffffff; /* Texto blanco */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00BFFF; /* Celeste al hacer hover */
         }
     </style>
 </head>
@@ -141,6 +163,11 @@
         </tbody>
     </table>
 
+    <input type="text" id="cellInput" placeholder="Ingrese identificador (p. ej., B12)">
+    <button onclick="changeCellState()">Cambiar Estado</button>
+    <button onclick="undoLastAction()">Deshacer</button>
+    <button onclick="resetAllCells()">Restablecer Todas</button>
+
     <script>
         // Llenar las celdas con números del 1 al 75 (excepto la primera fila)
         for (let i = 1; i <= 5; i++) {
@@ -158,6 +185,36 @@
                 cell.classList.toggle('active'); // Cambiar el estado al hacer clic
             });
         });
+
+        const undoStack = [];
+
+        function changeCellState() {
+            const input = document.getElementById('cellInput').value;
+            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
+            const cell = document.getElementById(cellId);
+
+            if (cell) {
+                cell.classList.toggle('active'); // Cambiar el estado
+                undoStack.push(cellId); // Agregar a la pila para deshacer
+            }
+
+            document.getElementById('cellInput').value = ''; // Limpiar el input
+        }
+
+        function undoLastAction() {
+            const lastAction = undoStack.pop();
+            if (lastAction) {
+                const cell = document.getElementById(lastAction);
+                cell.classList.toggle('active'); // Deshacer la última acción
+            }
+        }
+
+        function resetAllCells() {
+            numberCells.forEach(cell => {
+                cell.classList.remove('active'); // Restablecer todas las celdas
+            });
+        }
+
     </script>
 
 
