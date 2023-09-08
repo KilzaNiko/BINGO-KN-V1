@@ -209,32 +209,35 @@
 
         const undoStack = [];
 
-        function changeCellState() {
-            const input = document.getElementById('cellInput').value;
-            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
+        function changeCellState(cellId) {
             const cell = document.getElementById(cellId);
-
             if (cell) {
-                cell.classList.toggle('active'); // Cambiar el estado
-                undoStack.push(cellId); // Agregar a la pila para deshacer
+                cell.classList.toggle('active');
+                undoStack.push(cellId);
             }
-
-            document.getElementById('cellInput').value = ''; // Limpiar el input
         }
 
         function undoLastAction() {
             const lastAction = undoStack.pop();
             if (lastAction) {
                 const cell = document.getElementById(lastAction);
-                cell.classList.toggle('active'); // Deshacer la última acción
+                cell.classList.toggle('active');
             }
         }
 
         function resetAllCells() {
             numberCells.forEach(cell => {
-                cell.classList.remove('active'); // Restablecer todas las celdas
+                cell.classList.remove('active');
             });
+            undoStack.length = 0; // Limpiar la pila de deshacer
         }
+
+        // Agregar clics a las celdas para activar/desactivar
+        numberCells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                changeCellState(cell.id);
+            });
+        });
 
     </script>
 
