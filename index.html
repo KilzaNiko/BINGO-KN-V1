@@ -72,9 +72,19 @@
         /* Estilo para el grupo de entrada de Bootstrap */
         .input-group {
             margin-top: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el grupo de entrada */
         }
-    </style>
+
+        /* Estilo para input de Bootstrap */
+        .input-style {
+            margin-top: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+        }
+
+        /* Estilo para input de Bootstrap */
+        .button-style {
+            margin-top: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+        }
     </style>
 </head>
 <body>
@@ -178,11 +188,11 @@
 
                 <div class="container text-center">
                     <div class="input-group row justify-content-md-center">
-                        <input type="text" id="cellInput" class="form-control col col-lg-2" placeholder="Ingrese identificador (p. ej., B12)">
+                        <input type="text" id="cellInput" class="input-style form-control col col-lg-2" placeholder="Ingrese identificador (p. ej., B12)">
                         <div class="input-group-append col-6">
-                            <button class="btn btn-primary" type="button" onclick="changeCellState()">Cambiar Estado</button>
-                            <button class="btn btn-secondary" type="button" onclick="undoLastAction()">Deshacer</button>
-                            <button class="btn btn-danger" type="button" onclick="resetAllCells()">Restablecer Todas</button>
+                            <button class="btn btn-primary button-style" type="button" onclick="changeCellState()">Cambiar Estado</button>
+                            <button class="btn btn-secondary button-style" type="button" onclick="undoLastAction()">Deshacer</button>
+                            <button class="btn btn-danger button-style" type="button" onclick="resetAllCells()">Restablecer Todas</button>
                         </div>
                     </div>
                 </div>
