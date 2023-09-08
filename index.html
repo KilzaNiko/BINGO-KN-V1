@@ -20,6 +20,7 @@
         table {
             margin: 20px auto;
             background-color: transparent; /* Fondo de la tabla transparente */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
         }
 
         td {
@@ -49,6 +50,7 @@
         /* Estilo para el grupo de entrada de Bootstrap */
         .input-group {
             margin-top: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para el grupo de entrada */
         }
     </style>
     </style>
@@ -173,7 +175,15 @@
             }
         }
 
+        // Agregar un evento clic a las celdas de números para cambiar el estado
         const numberCells = document.querySelectorAll('.number');
+
+        numberCells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('active'); // Cambiar el estado al hacer clic
+            });
+        });
+
         const undoStack = [];
 
         function changeCellState() {
