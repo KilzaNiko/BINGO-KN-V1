@@ -18,7 +18,7 @@
             height: 100vh;
         }
 
-        table-responsive {
+        .bingo-table {
             margin: auto;
             background-color: transparent; /* Fondo de la tabla transparente */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
@@ -76,12 +76,36 @@
             margin-top: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
         }
+
+        /* Estilo para el contenedor del grupo de entrada */
+        .input-container {
+            text-align: center;
+            margin-top: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        /* Estilo para la tabla en modo vertical */
+        @media (max-width: 767px) {
+            .bingo-table {
+                display: block; /* Cambia a modo bloque en pantallas pequeñas */
+                max-width: none; /* Ancho máximo eliminado */
+            }
+
+            td {
+                display: block; /* Cambia a modo bloque en pantallas pequeñas */
+                width: 100%; /* Ancho completo en pantallas pequeñas */
+                border: none; /* Elimina los bordes en pantallas pequeñas */
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="table-responsive align-self-center col-md-12">
+            <div class="table-responsive-lg align-self-center bingo-table">
                 <table class="table">
                     <tbody>
                         <tr>
@@ -212,7 +236,7 @@
 
         // Agregar un evento clic a las celdas de números para cambiar el estado
         const numberCells = document.querySelectorAll('.number');
-
+        
         numberCells.forEach(cell => {
             cell.addEventListener('click', () => {
                 cell.classList.toggle('active'); // Cambiar el estado al hacer clic
