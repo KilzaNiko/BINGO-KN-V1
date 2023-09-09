@@ -21,6 +21,7 @@
         .table {
             margin: auto;
             background-color: #bdbdb969; /* Fondo de la tabla transparente */
+            border-radius: 10px; /* Bordes redondeados */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
         }
 
@@ -30,7 +31,6 @@
             text-align: center;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 10px; /* Bordes redondeados */
         } 
 
         /* Estilo para los números */
@@ -113,9 +113,9 @@
 
                 <div class="input-group">
                     <div class="row">
-                        <input type="text" id="cellInput" class="form-control col-md-12" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
-                        <button type="button" class="btn btn-success col-md-6" onclick="changeCellState()">Cambiar estado</button>
-                        <button type="button" class="btn btn-danger col-md-6" onclick="resetAllCells()">Restablecer Tabla</button>
+                        <input type="text" id="cellInput" class="form-control col-xxl-12" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
+                        <button type="button" class="btn btn-success col-xxl-6" onclick="changeCellState()">Cambiar estado</button>
+                        <button type="button" class="btn btn-danger col-xxl-6" onclick="resetAllCells()">Restablecer Tabla</button>
                     </div>
                 </div>
             </div>
