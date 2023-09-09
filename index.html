@@ -7,11 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <style>
-
-        ::after, ::before {
-            box-sizing: revert !important;
-        }
-
         body {
             background: linear-gradient(to bottom, #5900ff, #5a5a5a); /* Fondo degradado entre celeste y morado */
             margin: 0;
@@ -117,9 +112,11 @@
                 </table>
 
                 <div class="input-group">
-                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
-                    <button type="button" class="btn btn-success" onclick="changeCellState()">Cambiar estado</button>
-                    <button type="button" class="btn btn-danger" onclick="resetAllCells()">Restablecer Tabla</button>
+                    <div class="row">
+                        <input type="text" id="cellInput" class="form-control col-md-12" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
+                        <button type="button" class="btn btn-success col-md-6" onclick="changeCellState()">Cambiar estado</button>
+                        <button type="button" class="btn btn-danger col-md-6" onclick="resetAllCells()">Restablecer Tabla</button>
+                    </div>
                 </div>
             </div>
         </div>
