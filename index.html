@@ -221,18 +221,14 @@
         }
         */
 
-        function activateCell(cellId) {
-            const input = document.getElementById('cellInput').value;
-            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
-            const cell = document.getElementById(cellId);
+        function activateCell(cellInput) {
+        const cell = document.getElementById(cellId);
             if (cell) {
                 cell.classList.add('active');
             }
         }
 
-        function deactivateCell(cellId) {
-            const input = document.getElementById('cellInput').value;
-            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
+        function deactivateCell(cellInput) {
             const cell = document.getElementById(cellId);
             if (cell) {
                 cell.classList.remove('active');
