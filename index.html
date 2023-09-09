@@ -204,6 +204,8 @@
 
         const undoStack = [];
 
+        
+
         /*
         function changeCellState() {
             const input = document.getElementById('cellInput').value;
@@ -220,13 +222,17 @@
         */
 
         function activateCell(cellId) {
-        const cell = document.getElementById(cellId);
+            const input = document.getElementById('cellInput').value;
+            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
+            const cell = document.getElementById(cellId);
             if (cell) {
                 cell.classList.add('active');
             }
         }
 
         function deactivateCell(cellId) {
+            const input = document.getElementById('cellInput').value;
+            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
             const cell = document.getElementById(cellId);
             if (cell) {
                 cell.classList.remove('active');
