@@ -48,7 +48,6 @@
         /* Estilo para el grupo de entrada de Bootstrap */
         .input-group {
             margin-top: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
         }
 
         /* Estilo para el contenedor del grupo de entrada */
@@ -58,6 +57,13 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             padding: 10px;
+        }
+
+        .input-group.btn-state {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+        }
+        .input-group.btn-reset-tb{
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
         }
 
     </style>
@@ -118,8 +124,8 @@
 
                 <div class="input-group">
                     <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
-                    <button type="button" class="btn btn-success" onclick="changeCellState()">Cambiar estado</button>
-                    <button type="button" class="btn btn-danger" onclick="resetAllCells()">Restablecer Tabla</button>
+                    <button type="button" class="btn btn-success btn-state" onclick="changeCellState()">Cambiar estado</button>
+                    <button type="button" class="btn btn-danger btn-reset-tb" onclick="resetAllCells()">Restablecer Tabla</button>
                 </div>
             </div>
         </div>
