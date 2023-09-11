@@ -67,12 +67,20 @@
         <div class="row justify-content-center">
             <div class="table-responsive-lg align-self-center bingo-table">
 
-                <button type="button" class="btn btn-info" url="testa.html">Ir a Testa</button>
+                <button type="button" class="btn btn-info" url="index.html">Ir a Index</button>
 
                 <table class="table">
+                    <thead>
+                        <tr>
+                            <td class="table-primary" scope="col">B</td>
+                            <td class="table-success" scope="col">I</td>
+                            <td class="table-warning" scope="col">N</td>
+                            <td class="table-danger" scope="col">G</td>
+                            <td class="table-info" scope="col">O</td>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr>
-                            <td class="table-primary" id="B">B</td>
                             <!-- Generar números del 1 al 15 -->
                             <script>
                                 for (let i = 1; i <= 15; i++) {
@@ -81,7 +89,6 @@
                             </script>
                         </tr>
                         <tr>
-                            <td class="table-success" id="I">I</td>
                             <script>
                                 for (let i = 16; i <= 30; i++) {
                                     document.write(`<td class="number" id="${i}">${i}</td>`);
@@ -89,7 +96,6 @@
                             </script>
                         </tr>
                         <tr>
-                            <td class="table-warning" id="N">N</td>
                             <script>
                                 for (let i = 31; i <= 45; i++) {
                                     document.write(`<td class="number" id="${i}">${i}</td>`);
@@ -97,7 +103,6 @@
                             </script>
                         </tr>
                         <tr>
-                            <td class="table-danger" id="G">G</td>
                             <script>
                                 for (let i = 46; i <= 60; i++) {
                                     document.write(`<td class="number" id="${i}">${i}</td>`);
@@ -105,7 +110,6 @@
                             </script>
                         </tr>
                         <tr>
-                            <td class="table-info" id="O">O</td>
                             <script>
                                 for (let i = 61; i <= 75; i++) {
                                     document.write(`<td class="number" id="${i}">${i}</td>`);
