@@ -130,19 +130,18 @@
         const $table = document.querySelector('.table');
 
         function resizeTable() {
-        if (window.matchMedia('(max-width: 768px)').matches) {
-            // Cambiar el diseño de la tabla a vertical
-            $table.classList.add('table-vertical');
+            if (window.matchMedia('(max-width: 576px)').matches) {
+                // Cambiar el diseño de la tabla a vertical
+                $table.classList.add('table-vertical');
 
-            // Cambiar la alineación vertical de las celdas de números
-            $table.querySelectorAll('.number').forEach(cell => {
-                cell.style.verticalAlign = 'middle';
-            });
-            console.log('La tabla se ha cambiado al modo vertical');
-        } else {
-            // Restaurar el diseño de la tabla original
-            $table.classList.remove('table-vertical');
-        }
+                // Cambiar la alineación vertical de las celdas de números
+                $table.querySelectorAll('.number').forEach(cell => {
+                    cell.style.verticalAlign = 'middle';
+                });
+            } else {
+                // Restaurar el diseño de la tabla original
+                $table.classList.remove('table-vertical');
+            }
         }
 
         window.addEventListener('resize', resizeTable);
