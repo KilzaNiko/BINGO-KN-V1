@@ -8,26 +8,23 @@
 
     <style>
         body {
-            background: linear-gradient(to bottom, #00ffee, #ff00d4); /* Fondo degradado entre celeste y morado */
+            background: linear-gradient(to bottom, #00ffee, #ff00d4);
             margin: 0;
             padding: 0;
             display: flex;
-            /*flex-direction: unset;
-            align-items: center;
-            justify-content: center;*/
             height: 100vh;
             width: 100%;
         }
 
         .table {
             margin: auto;
-            background-color: #bdbdb969; /* Fondo de la tabla transparente */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+            background-color: #bdbdb969;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
 
         td {
-            border: 1px solid #dddddd; /* Borde gris claro */
+            border: 1px solid #dddddd;
             padding: 10px;
             text-align: center;
             font-weight: bold;
@@ -36,13 +33,13 @@
 
         /* Estilo para los números */
         td.number {
-            background-color: #ffffff; /* Fondo blanco por defecto */
+            background-color: #ffffff;
         }
 
         /* Estilo para el número en estado activo */
         td.active {
-            background-color: #383837; /* Fondo amarillo en estado activo */
-            color: #ffffff; /* Texto blanco */
+            background-color: #383837;
+            color: #ffffff;
         }
 
         /* Estilo para el grupo de entrada de Bootstrap */
@@ -60,12 +57,17 @@
         }
 
         .input-group.btn-state {
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
         .input-group.btn-reset-tb{
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
 
+        /* Estilo para el encabezado vertical */
+        .vertical-header th {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
@@ -74,11 +76,13 @@
             <div class="table-responsive container">
                 <table class="table align-bottom">
                     <thead>
-                        <tr class="table-primary" scope="col">B</tr>
-                        <tr class="table-success" scope="col">I</tr>
-                        <tr class="table-warning" scope="col">N</tr>
-                        <tr class="table-danger" scope="col">G</tr>
-                        <tr class="table-info" scope="col">O</tr>
+                        <tr>
+                            <th class="table-primary vertical-header" scope="col">B</th>
+                            <th class="table-success vertical-header" scope="col">I</th>
+                            <th class="table-warning vertical-header" scope="col">N</th>
+                            <th class="table-danger vertical-header" scope="col">G</th>
+                            <th class="table-info vertical-header" scope="col">O</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -170,7 +174,5 @@
         }
 
     </script>
-
-
 </body>
 </html>
