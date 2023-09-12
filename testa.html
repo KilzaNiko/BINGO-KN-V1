@@ -87,7 +87,9 @@
                     <tbody>
                         <!-- Generar filas para los números -->
                         <script>
+                            const bingoLetters = ["B", "I", "N", "G", "O"]
                             for (let i = 1; i <= 5; i++) {
+                                document.write(`<td class="number" id="${bingoLetters[i]}">${bingoLetters[i]}</td>`);
                                 for (let j = 1; j <= 15; j++) {
                                     const cellId = (i - 1) * 15 + j;
                                     document.write(`<td class="number" id="${cellId}">${cellId}</td>`);
