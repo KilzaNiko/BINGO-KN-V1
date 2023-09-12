@@ -132,9 +132,10 @@
         function resizeTable() {
             // Obtener el ancho de la ventana del navegador
             const width = window.innerWidth;
-            
+
             // Verificar si el ancho es menor o igual a 768px
             if (width <= 768) {
+                console.log("si entro la wea")
                 // Cambiar el diseño de la tabla a vertical
                 $table.classList.remove('table-horizontal');
                 $table.classList.add('table-vertical');
