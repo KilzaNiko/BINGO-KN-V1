@@ -60,10 +60,10 @@
             padding: 10px;
         }
 
-        /* tabla vertical
+        /* tabla vertical */
         .table-vertical td {
             vertical-align: middle;
-        } */
+        }
     </style>
 </head>
 <body>
@@ -77,10 +77,10 @@
                             const bingoLetters = ["B", "I", "N", "G", "O"]
                             const classColor = ["primary", "success", "warning", "danger", "info"]
                             for (let i = 1; i <= 5; i++) {
-                                document.write(`<td class="table-${classColor[i-1]} text-center" id="${bingoLetters[i-1]}">${bingoLetters[i-1]}</td>`);
+                                document.write(`<td class="table-${classColor[i-1]}" id="${bingoLetters[i-1]}">${bingoLetters[i-1]}</td>`);
                                 for (let j = 1; j <= 15; j++) {
                                     const cellId = (i - 1) * 15 + j;
-                                    document.write(`<td class="number text-center" id="${cellId}">${cellId}</td>`);
+                                    document.write(`<td class="number" id="${cellId}">${cellId}</td>`);
                                 }
                             }
                         </script>
@@ -137,7 +137,7 @@
 
             // Cambiar la alineación vertical de las celdas de números
             $table.querySelectorAll('.number').forEach(cell => {
-            cell.style.verticalAlign = 'middle';
+                cell.style.verticalAlign = 'middle';
             });
         } else {
             // Restaurar el diseño de la tabla original
