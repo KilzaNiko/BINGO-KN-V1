@@ -82,45 +82,31 @@
                             <th class="table-warning vertical-header" scope="col">N</th>
                             <th class="table-danger vertical-header" scope="col">G</th>
                             <th class="table-info vertical-header" scope="col">O</th>
+                            <!-- Generar números del 1 al 15 en la primera fila -->
+                            <script>
+                                for (let i = 1; i <= 15; i++) {
+                                    document.write(`<th class="table-secondary">${i}</th>`);
+                                }
+                            </script>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <!-- Generar números del 1 al 15 -->
-                            <script>
-                                for (let i = 1; i <= 15; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
+                        <!-- Generar filas para los números -->
+                        <script>
+                            for (let i = 1; i <= 5; i++) {
+                                document.write('<tr>');
+                                document.write(`<td class="table-primary">B</td>`);
+                                document.write(`<td class="table-success">I</td>`);
+                                document.write(`<td class="table-warning">N</td>`);
+                                document.write(`<td class="table-danger">G</td>`);
+                                document.write(`<td class="table-info">O</td>`);
+                                for (let j = 1; j <= 15; j++) {
+                                    const cellId = (i - 1) * 15 + j;
+                                    document.write(`<td class="number" id="${cellId}">${cellId}</td>`);
                                 }
-                            </script>
-                        </tr>
-                        <tr>
-                            <script>
-                                for (let i = 16; i <= 30; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <script>
-                                for (let i = 31; i <= 45; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <script>
-                                for (let i = 46; i <= 60; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <script>
-                                for (let i = 61; i <= 75; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
+                                document.write('</tr>');
+                            }
+                        </script>
                     </tbody>
                 </table>
 
@@ -135,14 +121,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script>
-        // Llenar las celdas con números del 1 al 75 (excepto la primera fila)
-        for (let i = 1; i <= 5; i++) {
-            for (let j = 1; j <= 15; j++) {
-                const cellId = (i - 1) * 15 + j;
-                document.getElementById(cellId.toString()).textContent = cellId;
-            }
-        }
-
         // Agregar un evento clic a las celdas de números para cambiar el estado
         const numberCells = document.querySelectorAll('.number');
         
@@ -164,7 +142,7 @@
                 undoStack.push(cellId); // Agregar a la pila para deshacer
             }
 
-            document.getElementById('cellInput').value = ''; // Limpiar el input 
+            document.getElementById('cellInput').value = ''; // Limpiar el input
         }
 
         function resetAllCells() {
@@ -172,7 +150,6 @@
                 cell.classList.remove('active'); // Restablecer todas las celdas
             });
         }
-
     </script>
 </body>
 </html>
