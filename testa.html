@@ -75,6 +75,14 @@
                         <script>
                             const bingoLetters = ["B", "I", "N", "G", "O"]
                             const classColor = ["primary", "success", "warning", "danger", "info"]
+
+                            // PROPIO ST 
+                            // crear primera fila con BINGO
+                            for (let v = 1; v <= 5; v++){
+                                document.write(`<td class="table-${classColor[i-1]}" id="${bingoLetters[i-1]}">${bingoLetters[i-1]}</td>`);
+                            }
+                            //STOPT FS
+
                             for (let i = 1; i <= 5; i++) {
                                 document.write(`<td class="table-${classColor[i-1]}" id="${bingoLetters[i-1]}">${bingoLetters[i-1]}</td>`);
                                 for (let j = 1; j <= 15; j++) {
@@ -160,8 +168,17 @@
                 });
             }
         }
-        
+
         window.addEventListener('resize', resizeTable);
+
+        const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
+        const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
+        const N3 = Array.from({ length: 15 }, (_, index) => index + 31);
+        const N4 = Array.from({ length: 15 }, (_, index) => index + 46);
+        const N5 = Array.from({ length: 15 }, (_, index) => index + 61);
+        const table_array = [[B,[N1]], [I,[N2]], [N,[N3]], [G, [N4]], [O, [N5]]]
+
+        console.log(table_array[0[0[0]]])
 
     </script>
 </body>
