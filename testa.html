@@ -73,7 +73,9 @@
                     <tbody>
                         <!-- Generar filas y columnas -->
                         <script>
-                            const bingoLetters = ["B", "I", "N", "G", "O"]
+                            import * as helpers from './helpers.js';
+
+                            const bingoLetters = helpers.get_data_table(false, true)
                             const classColor = ["primary", "success", "warning", "danger", "info"]
 
                             // PROPIO ST 
@@ -170,17 +172,6 @@
         }
 
         window.addEventListener('resize', resizeTable);
-
-        const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
-        const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
-        const N3 = Array.from({ length: 15 }, (_, index) => index + 31);
-        const N4 = Array.from({ length: 15 }, (_, index) => index + 46);
-        const N5 = Array.from({ length: 15 }, (_, index) => index + 61);
-        //const table_array = [["B",N1], ["I",N2], ["N",N3], ["G", N4], ["O", N5]]
-        const table_obj = { B: N1, I: N2, N: N3, G: N4, O: N5 };
-
-        //Obtener las letras
-        const letras = Object.keys(table_obj);
 
     </script>
 </body>

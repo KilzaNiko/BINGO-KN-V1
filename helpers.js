@@ -19,5 +19,4 @@ function get_data_table(all=true, a_letter=false, s_letter=false, letter){
             return table_obj([letter.toUpper()])
         }
     }
-    
 }
