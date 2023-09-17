@@ -71,12 +71,12 @@
         <div class="row justify-content-center">
             <div class="table-responsive">
                 <table class="table align-bottom">
-                    <h1>T3</h1>
+                    <h1>T7</h1>
                     <tbody>
 
                         <!-- Generar filas y columnas -->
                         <script>
-                            //import { get_data_table } from "./helpers.js";
+                            import { get_data_table } from "./helpers.js";
 
                             //const bingoLetters = get_data_table(false, true);
                             const classColor = ["primary", "success", "warning", "danger", "info"];
@@ -153,25 +153,9 @@
             
         }
 
-        function get_data_table(all=true, a_letter=false, s_letter=false, letter){
-            if (!all){ if ((a_letter && s_letter) || (!all && !a_letter && !s_letter) || (typeof letter !== "string" && letter.length === 1 && !/[B|I|N|G|O]/.test(letter))){ return false } }
-            const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
-            const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
-            const N3 = Array.from({ length: 15 }, (_, index) => index + 31);
-            const N4 = Array.from({ length: 15 }, (_, index) => index + 46);
-            const N5 = Array.from({ length: 15 }, (_, index) => index + 61);
-
-            const table_obj = { B: N1, I: N2, N: N3, G: N4, O: N5 };
-            const letras = Object.keys(table_obj);
-
-            if (all) { return table_obj; }else{
-                if(a_letter){ return Object.keys(table_obj) }else{
-                    return table_obj[(letter === letter.toLowerCase()) ? letter.toUpperCase() : letter]
-                }
-            }
-        }
-
         window.addEventListener('resize', resizeTable);
+
+        import { get_data_table } from "./helpers.js";
 
     </script>
 </body>
