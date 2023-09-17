@@ -16,7 +16,7 @@ function get_data_table(all=true, a_letter=false, s_letter=false, letter){
 
     if (all) { return table_obj; }else{
         if(a_letter){ return Object.keys(table_obj) }else{
-            return table_obj([letter.toUpper()])
+            return table_obj([letter.toString().toUpper()])
         }
     }
 }
