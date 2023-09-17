@@ -71,7 +71,7 @@
         <div class="row justify-content-center">
             <div class="table-responsive">
                 <table class="table align-bottom">
-                    <h1>T6</h1>
+                    <h1>T1</h1>
                     <tbody>
 
                         <!-- Generar filas y columnas -->
@@ -166,12 +166,20 @@
 
             if (all) { return table_obj; }else{
                 if(a_letter){ return Object.keys(table_obj) }else{
-                    return table_obj(letter.toUpperCase())
+                    return table_obj[letter]
                 }
             }
         }
 
         window.addEventListener('resize', resizeTable);
+
+        const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
+            const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
+            const N3 = Array.from({ length: 15 }, (_, index) => index + 31);
+            const N4 = Array.from({ length: 15 }, (_, index) => index + 46);
+            const N5 = Array.from({ length: 15 }, (_, index) => index + 61);
+
+            const table_obj1 = { B: N1, I: N2, N: N3, G: N4, O: N5 };
 
     </script>
 </body>
