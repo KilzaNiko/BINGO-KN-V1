@@ -160,6 +160,8 @@
             if(!all && !a_letter && letter === null){ return "2" }
             if(typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){ return "3"}
 
+            console.log("4")
+
             //if ((all && a_letter) || (!all && !a_letter && letter === null) || typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){ return false }
             const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
             const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
@@ -169,8 +171,16 @@
 
             const table_obj = { B: N1, I: N2, N: N3, G: N4, O: N5 };
 
-            if (all) { return table_obj; }else{
-                if(a_letter){ return Object.keys(table_obj) }else{
+            console.log("5")
+
+            if (all) { 
+                console.log("6")
+                return table_obj; }else{
+                    console.log("7")
+                if(a_letter){ 
+                    console.log("8")
+                    return Object.keys(table_obj) }else{
+                        console.log("8")
                     return table_obj[(letter === letter.toLowerCase()) ? letter.toUpperCase() : letter]
                 }
             }
