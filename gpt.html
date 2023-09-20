@@ -68,8 +68,8 @@
             }
 
             .vertical-table td {
-                width: 20%; /* Ajusta el ancho de las celdas para 5 columnas */
-                float: left;
+                width: 100%; /* Ocupa todo el ancho de la columna */
+                float: none; /* Sin flotación, aparece uno debajo del otro */
             }
         }
     </style>
@@ -78,14 +78,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="table-responsive">
-                <table class="table align-bottom">
+                <table class="table align-bottom vertical-table">
                     <h1>T4</h1>
                     <tbody>
                         <!-- Generar filas y columnas -->
                         <script>
                             const bingoLetters = get_data_table(false, true);
                             bingoLetters.forEach((letter) => {
-                                generate_htable(letter);
+                                generate_vertical_htable(letter);
                             });
                         </script>
                     </tbody>
@@ -108,8 +108,14 @@
             const table = document.querySelector('.table');
             if (window.innerWidth < 768) { // Cambiar a 768 para el tamaño "md"
                 table.classList.add('vertical-table');
+                document.querySelectorAll('tbody > tr').forEach((row) => {
+                    row.classList.add('vertical-row');
+                });
             } else {
                 table.classList.remove('vertical-table');
+                document.querySelectorAll('tbody > tr').forEach((row) => {
+                    row.classList.remove('vertical-row');
+                });
             }
         }
 
@@ -119,3 +125,4 @@
     </script>
 </body>
 </html>
+
