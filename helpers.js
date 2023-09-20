@@ -27,12 +27,9 @@ function generateRow(letter) {
     const numbers = get_data_table(false, false, letter);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
-    document.write(`<tr><td class="table-${letter} ${colorClass}" id="${letter}">${letter}</td></tr>`);
+    document.write(`<tr><td class="table-${letter} ${colorClass}" id="${letter}">${letter}</td>`);
     numbers.forEach((number) => {
         document.write(`<td class="number" id="${number}">${number}</td>`);
     });
     document.write('</tr>');
-
-
-    
 }
