@@ -81,22 +81,12 @@
                             // crear primera fila con BINGO
                             //CREAR AQUI EL FORMATO DE LA TABA EN VERTICAL Y HORIZONTAL
                             if (!under_hd){
-                               // for (let i = 0; i <= bingoLetters.length(); i++){
-
-                               // }
-                            }else{
-
+                                const bingoLetters = get_data_table(true, true);
+                                bingoLetters.forEach((letter) => {
+                                    generateRow(letter);
+                                });
                             }
 
-                            // HORIZONTAL
-                            for (let i = 1; i <= 5; i++) {
-                                //document.write(`<td class="table-${classColor[i-1]}" id="${bingoLetters[i-1]}">${bingoLetters[i-1]}</td>`);
-                                for (let j = 1; j <= 15; j++) {
-                                    const cellId = (i - 1) * 15 + j;
-                                    document.write(`<td class="number" id="${cellId}">${cellId}</td>`);
-                                }
-                                document.write('</tr>');
-                            }
 
                         </script>
                     </tbody>
