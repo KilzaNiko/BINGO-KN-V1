@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="helpers.js"></script>
     <style>
+        /* Estilos CSS personalizados */
         body {
             background: linear-gradient(to bottom, #bf00ff, #00d9ff);
             margin: 0;
@@ -33,7 +34,7 @@
             text-align: center;
             font-weight: bold;
             cursor: pointer;
-        } 
+        }
 
         /* Estilo para los números */
         td.number {
@@ -60,12 +61,23 @@
             padding: 10px;
         }
 
+        /* Estilo para la tabla en modo vertical */
+        @media (max-width: 768px) { /* Cambiar a 768 para el tamaño "md" */
+            .vertical-table th, .vertical-table td {
+                display: block;
+            }
+
+            .vertical-table td {
+                width: 20%; /* Ajusta el ancho de las celdas para 5 columnas */
+                float: left;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div id="bingoTableContainer">
+            <div class="table-responsive">
                 <table class="table align-bottom">
                     <h1>T4</h1>
                     <tbody>
@@ -79,39 +91,31 @@
                     </tbody>
                 </table>
 
-                <!-- Resto de tu código ... -->
+                <div class="input-group">
+                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
+                    <button type="button" class="btn btn-success btn-state" onclick="changeCellState()">Cambiar estado</button>
+                    <button type="button" class="btn btn-danger btn-reset-tb" onclick="resetAllCells()">Restablecer Tabla</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        const $bingoTableContainer = document.getElementById('bingoTableContainer');
-        const $bingoTable = document.querySelector('.table');
+        // ... tus scripts JavaScript existentes ...
 
-        function resizeTable() {
+        // Función para cambiar la disposición de la tabla al cargar y redimensionar la página
+        function updateTableLayout() {
+            const table = document.querySelector('.table');
             if (window.innerWidth < 768) { // Cambiar a 768 para el tamaño "md"
-                // Cambiar la disposición de las filas (5 columnas x 16 filas)
-                document.querySelectorAll('tbody > tr').forEach((row, index) => {
-                    if (index === 0) {
-                        row.classList.add('letter-row');
-                    } else {
-                        row.classList.remove('letter-row');
-                    }
-                });
+                table.classList.add('vertical-table');
             } else {
-                // Cambiar la disposición de las filas (16 filas x 5 columnas)
-                document.querySelectorAll('tbody > tr').forEach((row) => {
-                    row.classList.remove('letter-row');
-                });
+                table.classList.remove('vertical-table');
             }
         }
 
-        // Llama a la función de redimensionamiento cuando la ventana cambie de tamaño
-        window.addEventListener('resize', resizeTable);
-
-        // Ejecuta la función de redimensionamiento al cargar la página
-        resizeTable();
+        // Llama a la función de actualización de diseño cuando la página se carga y se redimensiona
+        window.addEventListener('load', updateTableLayout);
+        window.addEventListener('resize', updateTableLayout);
     </script>
-
 </body>
 </html>
