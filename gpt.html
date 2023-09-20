@@ -65,9 +65,9 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="table-responsive">
+            <div class="table-responsive" id="bingoTableContainer">
                 <table class="table align-bottom">
-                    <h1>T4</h1>
+                    <h1>1</h1>
                     <tbody>
                         <!-- Generar filas y columnas -->
                         <script>
@@ -79,54 +79,30 @@
                     </tbody>
                 </table>
 
-                <div class="input-group">
-                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
-                    <button type="button" class="btn btn-success btn-state" onclick="changeCellState()">Cambiar estado</button>
-                    <button type="button" class="btn btn-danger btn-reset-tb" onclick="resetAllCells()">Restablecer Tabla</button>
-                </div>
+                <!-- Resto de tu código ... -->
             </div>
         </div>
     </div>
 
     <script>
-        // Agregar un evento clic a las celdas de números para cambiar el estado
-        const numberCells = document.querySelectorAll('.number');
-        
-        numberCells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                cell.classList.toggle('active'); // Cambiar el estado al hacer clic
-            });
-        });
-
-        const undoStack = [];
-        
-        function changeCellState() {
-            const input = document.getElementById('cellInput').value;
-            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
-            const cell = document.getElementById(cellId);
-
-            if (cell) {
-                cell.classList.toggle('active'); // Cambiar el estado
-                undoStack.push(cellId); // Agregar a la pila para deshacer
-            }
-
-            document.getElementById('cellInput').value = ''; // Limpiar el input
-        }
-
-        function resetAllCells() {
-            numberCells.forEach(cell => {
-                cell.classList.remove('active'); // Restablecer todas las celdas
-            });
-        }
-
-        const $table = document.querySelector('.table');
+        const $bingoTableContainer = document.getElementById('bingoTableContainer');
+        const $bingoTable = document.querySelector('.table');
 
         function resizeTable() {
-            
+            if (window.innerWidth < 768) { // Cambiar a 768 para el tamaño "md"
+                $bingoTable.classList.remove('table-horizontal'); // Eliminar clase horizontal
+                $bingoTable.classList.add('table-vertical'); // Agregar clase vertical
+            } else {
+                $bingoTable.classList.remove('table-vertical'); // Eliminar clase vertical
+                $bingoTable.classList.add('table-horizontal'); // Agregar clase horizontal
+            }
         }
 
+        // Llama a la función de redimensionamiento cuando la ventana cambie de tamaño
         window.addEventListener('resize', resizeTable);
 
+        // Ejecuta la función de redimensionamiento al cargar la página
+        resizeTable();
     </script>
 
 </body>
