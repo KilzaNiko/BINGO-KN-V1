@@ -74,14 +74,13 @@
                         <script>
 
                             const bingoLetters = get_data_table(false, true);
-                            const classColor = ["primary", "success", "warning", "danger", "info"];
 
                             const under_hd = true;
                             // PROPIO ST 
                             // crear primera fila con BINGO
                             //CREAR AQUI EL FORMATO DE LA TABA EN VERTICAL Y HORIZONTAL
                             if (!under_hd){
-                                const bingoLetters = get_data_table(true, true);
+                                const bingoLetters = get_data_table(false, true);
                                 bingoLetters.forEach((letter) => {
                                     generateRow(letter);
                                 });

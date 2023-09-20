@@ -25,9 +25,14 @@ function get_data_table(all=true, a_letter=false, letter){
 
 function generateRow(letter) {
     const numbers = get_data_table(false, false, letter);
-    document.write(`<tr><td class="table-${letter}" id="${letter}">${letter}</td>`);
+    const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
+    const colorClass = letterColors[letter];
+    document.write(`<tr><td class="table-${letter} ${colorClass}" id="${letter}">${letter}</td></tr>`);
     numbers.forEach((number) => {
         document.write(`<td class="number" id="${number}">${number}</td>`);
     });
     document.write('</tr>');
+
+
+    
 }
