@@ -23,7 +23,7 @@ function get_data_table(all=true, a_letter=false, letter){
     }
 }
 
-function generateRow(letter) {
+function generate_htable(letter) {
     const numbers = get_data_table(false, false, letter);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
@@ -33,3 +33,25 @@ function generateRow(letter) {
     });
     document.write('</tr>');
 }
+
+function generate_vtable() {
+    const letters = ['B', 'I', 'N', 'G', 'O'];
+    const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
+
+    for (let row = 0; row < 16; row++) {
+        document.write('<tr>');
+        for (let col = 0; col < 5; col++) {
+            if (row === 0) {
+                const letter = letters[col];
+                const colorClass = letterColors[letter];
+                document.write(`<td class="table-${colorClass}" id="${letter}">${letter}</td>`);
+            } else {
+                const number = row + (col * 16);
+                document.write(`<td class="number" id="${number}">${number}</td>`);
+            }
+        }
+        document.write('</tr>');
+    }
+}
+
+
