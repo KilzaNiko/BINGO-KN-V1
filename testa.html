@@ -69,25 +69,12 @@
                 <table class="table align-bottom">
                     <h1>T4</h1>
                     <tbody>
-
                         <!-- Generar filas y columnas -->
                         <script>
-
                             const bingoLetters = get_data_table(false, true);
-
-                            const under_hd = true;
-                            // PROPIO ST 
-                            // crear primera fila con BINGO
-                            //CREAR AQUI EL FORMATO DE LA TABA EN VERTICAL Y HORIZONTAL
-                            if (under_hd){
-                                bingoLetters.forEach((letter) => {
-                                    generate_vtable(letter);
-                                });
-                            }else{
-
-                            }
-
-
+                            bingoLetters.forEach((letter) => {
+                                generate_vtable(letter);
+                            });
                         </script>
                     </tbody>
                 </table>
@@ -101,7 +88,7 @@
         </div>
     </div>
 
-    <script type="module">
+    <script>
         // Agregar un evento clic a las celdas de números para cambiar el estado
         const numberCells = document.querySelectorAll('.number');
         
