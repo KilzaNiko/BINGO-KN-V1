@@ -20,11 +20,10 @@ function get_data_tablea(all=true, a_letter=false, letter){
 }
 
 function get_data_table(all=true, a_letter=false, letter){
-    if(all && a_letter || !all && !a_letter){ return "1" }
-    if(!all && !a_letter && !letter){ return "2" }
-    if(!letter){if(typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){return "3"}}
+    if(all && a_letter || !all && !a_letter && !letter){ return "1" }
+    if(!letter){if(typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){return "2"}}
 
-    console.log("4a")
+    console.log("3")
 
     //if ((all && a_letter) || (!all && !a_letter && letter === null) || typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){ return false }
     const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
@@ -35,14 +34,14 @@ function get_data_table(all=true, a_letter=false, letter){
 
     const table_obj = { B: N1, I: N2, N: N3, G: N4, O: N5 };
 
-    console.log("5")
+    console.log("4")
 
     if (all) { 
-        console.log("6")
+        console.log("5")
         return table_obj; }else{
-            console.log("7")
+            console.log("6")
         if(a_letter){ 
-            console.log("8")
+            console.log("7")
             return Object.keys(table_obj) }else{
                 console.log("8")
             return table_obj[(letter === letter.toLowerCase()) ? letter.toUpperCase() : letter]
