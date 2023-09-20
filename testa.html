@@ -79,8 +79,7 @@
                             // PROPIO ST 
                             // crear primera fila con BINGO
                             //CREAR AQUI EL FORMATO DE LA TABA EN VERTICAL Y HORIZONTAL
-                            if (!under_hd){
-                                const bingoLetters = get_data_table(false, true);
+                            if (under_hd){
                                 bingoLetters.forEach((letter) => {
                                     generateRow(letter);
                                 });
