@@ -65,9 +65,9 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="table-responsive" id="bingoTableContainer">
+            <div id="bingoTableContainer">
                 <table class="table align-bottom">
-                    <h1>1</h1>
+                    <h1>T4</h1>
                     <tbody>
                         <!-- Generar filas y columnas -->
                         <script>
@@ -90,11 +90,19 @@
 
         function resizeTable() {
             if (window.innerWidth < 768) { // Cambiar a 768 para el tamaño "md"
-                $bingoTable.classList.remove('table-horizontal'); // Eliminar clase horizontal
-                $bingoTable.classList.add('table-vertical'); // Agregar clase vertical
+                // Cambiar la disposición de las filas (5 columnas x 16 filas)
+                document.querySelectorAll('tbody > tr').forEach((row, index) => {
+                    if (index === 0) {
+                        row.classList.add('letter-row');
+                    } else {
+                        row.classList.remove('letter-row');
+                    }
+                });
             } else {
-                $bingoTable.classList.remove('table-vertical'); // Eliminar clase vertical
-                $bingoTable.classList.add('table-horizontal'); // Agregar clase horizontal
+                // Cambiar la disposición de las filas (16 filas x 5 columnas)
+                document.querySelectorAll('tbody > tr').forEach((row) => {
+                    row.classList.remove('letter-row');
+                });
             }
         }
 
