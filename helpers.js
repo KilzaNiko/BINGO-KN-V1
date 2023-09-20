@@ -23,7 +23,7 @@ function get_data_table(all=true, a_letter=false, letter){
     }
 }
 
-function generate_htable(letter) {
+function generate_table(letter) {
     const numbers = get_data_table(false, false, letter);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
