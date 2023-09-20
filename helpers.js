@@ -22,7 +22,7 @@ function get_data_tablea(all=true, a_letter=false, letter){
 function get_data_table(all=true, a_letter=false, letter){
     if(all && a_letter || !all && !a_letter){ return "1" }
     if(!all && !a_letter && !letter){ return "2" }
-    if(typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){ return "3"}
+    if(!letter){if(typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())){return "3"}}
 
     console.log("4a")
 
