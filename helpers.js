@@ -35,21 +35,25 @@ function generate_htable(letter) {
 }
 
 function generate_vtable() {
-    const letters = ['B', 'I', 'N', 'G', 'O'];
+    const letters = get_data_table(false, true);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
 
-    document.write('<tr>');
-    for (let col = 0; col < 5; col++) {
-        if (row === 0) {
-            const letter = letters[col];
-            const colorClass = letterColors[letter];
-            document.write(`<td class="table-${colorClass}" id="${letter}">${letter}</td>`);
-        } else {
-            const number = row + (col * 16);
-            document.write(`<td class="number" id="${number}">${number}</td>`);
+    for (let row = 0; row < 16; row++) {
+        document.write('<tr>');
+        for (let col = 0; col < 5; col++) {
+            if (row === 0) {
+                const letter = letters[col];
+                const colorClass = letterColors[letter];
+                document.write(`<td class="table-${colorClass}" id="${letter}">${letter}</td>`);
+            } else {
+                const numbers = get_data_table(false, false, letters[col]);
+                const number = numbers[row - 1];
+                document.write(`<td class="number" id="${number}">${number}</td>`);
+            }
         }
+        document.write('</tr>');
     }
-    document.write('</tr>');
 }
+
 
 
