@@ -34,24 +34,22 @@ function generate_table(letter) {
     document.write('</tr>');
 }
 
-function generate_custom_vertical_table(letter) {
+function generate_vertical_table(letter) {
     const numbers = get_data_table(false, false, letter);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
     const table = document.querySelector('.table');
-    
-    // Crear una fila para la letra en la primera columna
-    const letterRow = table.insertRow();
-    const letterCell = letterRow.insertCell();
-    letterCell.className = `table-${colorClass}`;
-    letterCell.textContent = letter;
+    const rows = 16; // Número de filas en modo vertical
 
-    // Crear filas para los números debajo de la letra
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= rows; i++) {
         const row = table.insertRow();
         const cell = row.insertCell();
-        cell.className = 'number';
-        cell.textContent = numbers[i - 1];
+        cell.className = `table-${colorClass}`;
+        if (i === 1) {
+            cell.textContent = letter;
+        } else {
+            cell.textContent = numbers[i - 2]; // Restamos 2 porque i empieza en 1 y los números comienzan en 1
+        }
     }
 }
 
