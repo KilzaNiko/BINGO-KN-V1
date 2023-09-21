@@ -63,20 +63,12 @@
 
         /* Estilo para la tabla en modo vertical */
         @media (max-width: 768px) { /* Cambiar a 768 para el tamaño "md" */
-            table.vertical-table th,
-            table.vertical-table td {
-                display: table-cell;
-                vertical-align: middle;
-                text-align: center;
+            table.vertical-table th, table.vertical-table td {
+                display: block;
             }
 
-            table.vertical-table th {
-                background-color: transparent;
-            }
-
-            table.vertical-table td {
-                background-color: #bdbdb969;
-                border: 1px solid #dddddd;
+            table.vertical-table th, table.vertical-table td {
+                width: auto;
             }
         }
     </style>
@@ -91,9 +83,7 @@
                         <!-- Generar filas y columnas -->
                         <script>
                             const bingoLetters = get_data_table(false, true);
-                            bingoLetters.forEach((letter) => {
-                                generate_table(letter);
-                            });
+                            generate_table(bingoLetters);
                         </script>
                     </tbody>
                 </table>
