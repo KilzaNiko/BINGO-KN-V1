@@ -39,16 +39,20 @@ function generate_vertical_table(letter) {
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
     const table = document.querySelector('.table');
-    const rows = 16; // Número de filas en modo vertical
-
-    for (let i = 1; i <= rows; i++) {
+    
+    for (let i = 1; i <= 15; i++) {
         const row = table.insertRow();
-        const cell = row.insertCell();
-        cell.className = `table-${colorClass}`;
-        if (i === 1) {
-            cell.textContent = letter;
-        } else {
-            cell.textContent = numbers[i - 2]; // Restamos 2 porque i empieza en 1 y los números comienzan en 1
+        
+        // Agregar las letras en las celdas correspondientes
+        for (let j = 1; j <= 5; j++) {
+            const cell = row.insertCell();
+            cell.className = `table-${colorClass}`;
+            if (j === 1) {
+                cell.textContent = letter;
+            } else {
+                const numberIndex = (j - 2) * 15 + (i - 1); // Calcular el índice del número
+                cell.textContent = numbers[numberIndex];
+            }
         }
     }
 }
