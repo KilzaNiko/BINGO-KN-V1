@@ -63,13 +63,9 @@
 
         /* Estilo para la tabla en modo vertical */
         @media (max-width: 768px) { /* Cambiar a 768 para el tamaño "md" */
-            table.vertical-table {
-                width: 100%;
-            }
-            
-            table.vertical-table th, table.vertical-table td {
+            .vertical-table th, .vertical-table td {
                 display: block;
-                width: 20%; /* Ajustar el ancho de las celdas para 5 columnas */
+                width: 20%; /* Ajusta el ancho de las celdas para 5 columnas */
                 float: left;
             }
         }
@@ -85,7 +81,9 @@
                         <!-- Generar filas y columnas -->
                         <script>
                             const bingoLetters = get_data_table(false, true);
-                            generate_table(bingoLetters);
+                            bingoLetters.forEach((letter) => {
+                                generate_table(letter);
+                            });
                         </script>
                     </tbody>
                 </table>
@@ -116,3 +114,5 @@
         window.addEventListener('load', updateTableLayout);
         window.addEventListener('resize', updateTableLayout);
     </script>
+</body>
+</html>
