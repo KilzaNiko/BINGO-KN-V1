@@ -39,21 +39,19 @@ function generate_vertical_table(letter) {
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     const colorClass = letterColors[letter];
     const table = document.querySelector('.table');
-    
-    for (let i = 1; i <= 15; i++) {
-        const row = table.insertRow();
-        
-        // Agregar las letras en las celdas correspondientes
+    const rows = 16; // Número de filas en modo vertical
+
+    for (let i = 1; i <= rows; i++) {
+        document.write('<tr>');
         for (let j = 1; j <= 5; j++) {
-            const cell = row.insertCell();
-            cell.className = `table-${colorClass}`;
             if (j === 1) {
-                cell.textContent = letter;
+                document.write(`<td class="table-${colorClass}">${letter}</td>`);
             } else {
                 const numberIndex = (j - 2) * 15 + (i - 1); // Calcular el índice del número
-                cell.textContent = numbers[numberIndex];
+                document.write(`<td class="number">${numbers[numberIndex]}</td>`);
             }
         }
+        document.write('</tr>');
     }
 }
 
