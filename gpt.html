@@ -63,12 +63,14 @@
 
         /* Estilo para la tabla en modo vertical */
         @media (max-width: 768px) { /* Cambiar a 768 para el tamaño "md" */
+            table.vertical-table {
+                width: 100%;
+            }
+            
             table.vertical-table th, table.vertical-table td {
                 display: block;
-            }
-
-            table.vertical-table th, table.vertical-table td {
-                width: auto;
+                width: 20%; /* Ajustar el ancho de las celdas para 5 columnas */
+                float: left;
             }
         }
     </style>
@@ -114,5 +116,3 @@
         window.addEventListener('load', updateTableLayout);
         window.addEventListener('resize', updateTableLayout);
     </script>
-</body>
-</html>
