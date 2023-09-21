@@ -63,13 +63,20 @@
 
         /* Estilo para la tabla en modo vertical */
         @media (max-width: 768px) { /* Cambiar a 768 para el tamaño "md" */
-            .vertical-table th, .vertical-table td {
-                display: block;
+            table.vertical-table th,
+            table.vertical-table td {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
             }
 
-            .vertical-table td {
-                width: 20%; /* Ajusta el ancho de las celdas para 5 columnas */
-                float: left;
+            table.vertical-table th {
+                background-color: transparent;
+            }
+
+            table.vertical-table td {
+                background-color: #bdbdb969;
+                border: 1px solid #dddddd;
             }
         }
     </style>
@@ -78,7 +85,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="table-responsive">
-                <table class="table align-bottom">
+                <table class="table align-bottom vertical-table">
                     <h1>T4</h1>
                     <tbody>
                         <!-- Generar filas y columnas -->
@@ -119,4 +126,3 @@
     </script>
 </body>
 </html>
-
