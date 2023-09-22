@@ -1,7 +1,7 @@
 
 //all = devuelve todo el obj con letras y sus respectivos numeros
 //a_letter = solo devuelve las letras en un array y en formato string
-//letter = devuelve los numeros de la letra indicada
+//letter = devuelve los numeros correspondientes a la letra especificada
 //la validacion de las 3 variables tienen sentido de izquierda a derecha
 function get_data_table(all=true, a_letter=false, letter){
     if(all && a_letter || !all && !a_letter && !letter || !all && !a_letter && (typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())) ){ return false }
@@ -23,18 +23,27 @@ function get_data_table(all=true, a_letter=false, letter){
     }
 }
 
-function generate_table(){
+function generate_table(letter) {
+    const numbers = get_data_table(false, false, letter);
+    const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
+    const colorClass = letterColors[letter];
+    document.write(`<tr><td class="table-${colorClass}" id="${letter}">${letter}</td>`);
+    numbers.forEach((number) => {
+        document.write(`<td class="number" id="${number}">${number}</td>`);
+    });
+    document.write('</tr>');
+}
+
+function generate_table2(){
     const lettersArray = get_data_table(false, true);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
-    bingoLetters.forEach((lettersArray) => {
-        const numbers = get_data_table(false, false, lettersArray[i]);
-        for (let i = 0; i <= lettersArray.length();){
-            document.write(`<tr><td class="table-${letterColors[lettersArray[i]]}" id="${lettersArray[i]}">${lettersArray[i]}</td>`);
-            numbers.forEach((number) => {
-                document.write(`<td class="number" id="${number}">${number}</td>`);
-            });
-            document.write('</tr>');
-        }
+    lettersArray.forEach((letter) => {
+        const numbers = get_data_table(false, false, letter);
+        document.write(`<tr><td class="table-${letterColors[letter]}" id="${letter}">${letter}</td>`);
+        numbers.forEach((number) => {
+            document.write(`<td class="number" id="${number}">${number}</td>`);
+        });
+        document.write('</tr>');
     });
 }
 
@@ -61,7 +70,6 @@ function generate_vertical_table(letter) {
 
 function get_vertical_numbers(){
     const row = [];
-
 }
 
 
