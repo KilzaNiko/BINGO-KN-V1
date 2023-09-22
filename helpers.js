@@ -1,7 +1,7 @@
 
 //all = devuelve todo el obj con letras y sus respectivos numeros
 //a_letter = solo devuelve las letras en un array y en formato string
-//letter = este parametro recibe la letra a consultar, debe ir especificada si o si junto a s_letter=true
+//letter = devuelve los numeros de la letra indicada
 //la validacion de las 3 variables tienen sentido de izquierda a derecha
 function get_data_table(all=true, a_letter=false, letter){
     if(all && a_letter || !all && !a_letter && !letter || !all && !a_letter && (typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())) ){ return false }
@@ -23,15 +23,19 @@ function get_data_table(all=true, a_letter=false, letter){
     }
 }
 
-function generate_table(letter) {
-    const numbers = get_data_table(false, false, letter);
+function generate_table(){
+    const lettersArray = get_data_table(false, true);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
-    const colorClass = letterColors[letter];
-    document.write(`<tr><td class="table-${colorClass}" id="${letter}">${letter}</td>`);
-    numbers.forEach((number) => {
-        document.write(`<td class="number" id="${number}">${number}</td>`);
+    bingoLetters.forEach((lettersArray) => {
+        const numbers = get_data_table(false, false, lettersArray[i]);
+        for (let i = 0; i <= lettersArray.length();){
+            document.write(`<tr><td class="table-${letterColors[lettersArray[i]]}" id="${lettersArray[i]}">${lettersArray[i]}</td>`);
+            numbers.forEach((number) => {
+                document.write(`<td class="number" id="${number}">${number}</td>`);
+            });
+            document.write('</tr>');
+        }
     });
-    document.write('</tr>');
 }
 
 function generate_vertical_table(letter) {
@@ -53,6 +57,11 @@ function generate_vertical_table(letter) {
         }
         document.write('</tr>');
     }
+}
+
+function get_vertical_numbers(){
+    const row = [];
+
 }
 
 
