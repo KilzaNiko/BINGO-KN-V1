@@ -23,18 +23,7 @@ function get_data_table(all=true, a_letter=false, letter){
     }
 }
 
-function generate_table(letter) {
-    const numbers = get_data_table(false, false, letter);
-    const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
-    const colorClass = letterColors[letter];
-    document.write(`<tr><td class="table-${colorClass}" id="${letter}">${letter}</td>`);
-    numbers.forEach((number) => {
-        document.write(`<td class="number" id="${number}">${number}</td>`);
-    });
-    document.write('</tr>');
-}
-
-function generate_table2(){
+function generate_table(){
     const lettersArray = get_data_table(false, true);
     const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
     lettersArray.forEach((letter) => {
