@@ -31,6 +31,7 @@ function get_data_table(all=true, a_letter=false, letter, v_data=false){
             }
             v_table_obj['F' + (i + 1)] = FX
         }
+        return v_table_obj;
     }
 }
 
