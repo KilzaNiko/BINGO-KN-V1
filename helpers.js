@@ -7,7 +7,7 @@
 // letras "BINGO"
 //> la validacion de las 3 variables tienen sentido de izquierda a derecha
 function get_data_table(all=true, a_letter=false, letter, v_data=false){
-    if(all && a_letter || !all && !a_letter && !letter && !v_data || !all && !a_letter && (typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())) ){ return false }
+    //if(all && a_letter || !all && !a_letter && !letter && !v_data || !all && !a_letter && (typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())) ){ return false }
 
     const N1 = Array.from({ length: 15 }, (_, index) => index + 1);
     const N2 = Array.from({ length: 15 }, (_, index) => index + 16);
@@ -21,7 +21,7 @@ function get_data_table(all=true, a_letter=false, letter, v_data=false){
     if(all){return table_obj}
     else if(a_letter){return letters}
     else if(letter === "string"){return table_obj[(letter === letter.toLowerCase()) ? letter.toUpperCase() : letter]}
-    else if(v_data){ 
+    else if(v_data){
         const v_table_obj = {BINGO: letters}
         for (let i = 0; i < 15; i++){
             const FX = []
