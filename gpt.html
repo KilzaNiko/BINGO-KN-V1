@@ -81,8 +81,9 @@
                         <!-- Generar filas y columnas -->
                         <script>
                             // horizontal
-                            generate_table();
-                            //
+                            //generate_table();
+                            // vertical
+                            generate_vertical_table();
                         </script>
                     </tbody>
                 </table>
@@ -100,7 +101,7 @@
         // ... tus scripts JavaScript existentes ...
 
         // Función para cambiar la disposición de la tabla al cargar y redimensionar la página
-        function updateTableLayout() {
+        function updateTableLayout(){
             const table = document.querySelector('.table');
             if (window.innerWidth < 768) { // Cambiar a 768 para el tamaño "md"
                 table.classList.add('vertical-table');

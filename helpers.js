@@ -1,8 +1,11 @@
 
-//all = devuelve todo el obj con letras y sus respectivos numeros
-//a_letter = solo devuelve las letras en un array y en formato string
-//letter = devuelve los numeros correspondientes a la letra especificada
-//la validacion de las 3 variables tienen sentido de izquierda a derecha
+//> all = devuelve todo el obj con letras y sus respectivos numeros
+//> a_letter = solo devuelve las letras en un array y en formato string
+//> letter = devuelve los numeros correspondientes a la letra especificada
+//> v_data = devuelve un obj con 16 claves, la primera teniendo un array con las letras "BINGO" y 
+// las demas con los numeros ordenados en arrays de 5 para asi ser ordenados verticalmente con las
+// letras "BINGO"
+//> la validacion de las 3 variables tienen sentido de izquierda a derecha
 function get_data_table(all=true, a_letter=false, letter, v_data=false){
     if(all && a_letter || !all && !a_letter && !letter && !v_data || !all && !a_letter && (typeof letter !== "string" || letter.length > 1 || !/[B|I|N|G|O]/.test(letter.toLocaleUpperCase())) ){ return false }
 
@@ -13,13 +16,20 @@ function get_data_table(all=true, a_letter=false, letter, v_data=false){
     const N5 = Array.from({ length: 15 }, (_, index) => index + 61);
 
     const table_obj = { B: N1, I: N2, N: N3, G: N4, O: N5 };
+    const letters = Object.keys(table_obj)
 
     if(all){return table_obj}
-    else if(a_letter){return Object.keys(table_obj)}
+    else if(a_letter){return letters}
     else if(letter === "string"){return table_obj[(letter === letter.toLowerCase()) ? letter.toUpperCase() : letter]}
     else if(v_data){ 
-        const v_table_obj = {
-            
+        const v_table_obj = {BINGO: letters}
+        for (let i = 0; i < 15; i++){
+            const FX = []
+            for (let x = 0; x < 5; x++){
+                const claveN = eval(`N${x+1}`)
+                FX.push(claveN[i])
+            }
+            v_table_obj['F' + (i + 1)] = FX
         }
     }
 }
@@ -37,21 +47,17 @@ function generate_table(){
     });
 }
 
-function generate_vertical_table(letter) {
-    const numbers = get_data_table(false, false, letter);
-    const letterColors = { 'B': "primary", 'I': "success", 'N': "warning", 'G': "danger", 'O': "info" };
-    const colorClass = letterColors[letter];
-    const table = document.querySelector('.table');
-    const rows = 16; // Número de filas en modo vertical
+function generate_vertical_table(){
+    const v_data = get_data_table(false, false, false, true);
+    const letterColors = ["primary", "success", "warning", "danger", "info"]
 
-    for (let i = 1; i <= rows; i++) {
+    for (let i = 1; i <= 16; i++) {
         document.write('<tr>');
-        for (let j = 1; j <= 5; j++) {
-            if (j === 1) {
-                document.write(`<td class="table-${colorClass}">${letter}</td>`);
-            } else {
-                const numberIndex = (j - 2) * 15 + (i - 1); // Calcular el índice del número
-                document.write(`<td class="number">${numbers[numberIndex]}</td>`);
+        for (x = 0; x <= 5; x++){
+            if ( i === 1 ) {
+                document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
+            }else{
+                document.write(`<td class="number">${v_data[eval(`N${i}`)[x]]}</td>`);
             }
         }
         document.write('</tr>');
@@ -59,7 +65,7 @@ function generate_vertical_table(letter) {
 }
 
 function get_vertical_numbers(){
-    const row = [];
+    
 }
 
 
