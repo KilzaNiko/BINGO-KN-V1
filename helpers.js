@@ -6,52 +6,38 @@ function getWindowsSize() {
 }
 
 const undoStack = [];
+
+// Función para activar o desactivar una celda en ambas tablas
+function toggleCellState(cellId) {
+    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
+    const verticalCell = document.getElementById(`vertical_${cellId}`);
+
+    if (horizontalCell && verticalCell) {
+        horizontalCell.classList.toggle('active');
+        verticalCell.classList.toggle('active');
+    }
+}
+
+// Función para cambiar el estado de una celda al hacer clic
 function changeCellState() {
     const input = document.getElementById('cellInput').value;
     const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
-    const cell = document.getElementById(cellId);
 
-    if (cell) {
-        cell.classList.toggle('active'); // Cambiar el estado
+    if (cellId) {
+        toggleCellState(cellId);
         undoStack.push(cellId); // Agregar a la pila para deshacer
     }
 
-    document.getElementById('cellInput').value = ''; // Limpiar el input 
+    document.getElementById('cellInput').value = ''; // Limpiar el input
 }
 
+// Función para restablecer todas las celdas
 function resetAllCells() {
-    numberCells.forEach(cell => {
-        cell.classList.remove('active'); // Restablecer todas las celdas
+    const activeCells = document.querySelectorAll('.bingo-cell.active');
+    activeCells.forEach(cell => {
+        const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
+        toggleCellState(cellId);
     });
-}
-
-
-
-// Estado de las celdas activas
-const activeCells = new Set();
-
-// Función para activar una celda en ambas tablas
-function activateCell(cellId) {
-    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
-    const verticalCell = document.getElementById(`vertical_${cellId}`);
-
-    if (horizontalCell && verticalCell) {
-        horizontalCell.classList.add('active');
-        verticalCell.classList.add('active');
-        activeCells.add(cellId);
-    }
-}
-
-// Función para desactivar una celda en ambas tablas
-function deactivateCell(cellId) {
-    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
-    const verticalCell = document.getElementById(`vertical_${cellId}`);
-
-    if (horizontalCell && verticalCell) {
-        horizontalCell.classList.remove('active');
-        verticalCell.classList.remove('active');
-        activeCells.delete(cellId);
-    }
 }
 
 // Función para verificar y cambiar entre las tablas según la resolución de la pantalla
@@ -68,4 +54,3 @@ function checkTableLayout() {
         verticalTable.style.display = 'block';
     }
 }
-

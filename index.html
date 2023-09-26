@@ -95,18 +95,6 @@
     </div>
 
     <script>
-        // Agregar eventos clic a las celdas de ambas tablas
-        document.querySelectorAll('.number').forEach(cell => {
-            cell.addEventListener('click', () => {
-                const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
-                if (cell.classList.contains('active')) {
-                    deactivateCell(cellId);
-                } else {
-                    activateCell(cellId);
-                }
-            });
-        });
-
         // Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
         window.addEventListener('load', checkTableLayout);
         window.addEventListener('resize', checkTableLayout);

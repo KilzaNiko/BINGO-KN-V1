@@ -41,7 +41,7 @@ function generate_table(){
         const numbers = get_data_table(false, false, letter);
         document.write(`<tr><td class="table-${letterColors[letter]}" id="${letter}">${letter}</td>`);
         numbers.forEach((number) => {
-            document.write(`<td class="number" id="${number}">${number}</td>`);
+            document.write(`<td class="number bingo-cell" id="${number}">${number}</td>`);
         });
         document.write('</tr>');
     });
@@ -63,3 +63,15 @@ function generate_vertical_table(){
         document.write('</tr>');
     }
 }
+
+// Agregar eventos clic a las celdas de ambas tablas
+document.querySelectorAll('.bingo-cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+        const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
+        if (cell.classList.contains('active')) {
+            deactivateCell(cellId);
+        } else {
+            activateCell(cellId);
+        }
+    });
+});
