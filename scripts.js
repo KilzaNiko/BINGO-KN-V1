@@ -63,15 +63,3 @@ function generate_vertical_table(){
         document.write('</tr>');
     }
 }
-
-// Agregar eventos clic a las celdas de ambas tablas
-document.querySelectorAll('.bingo-cell').forEach(cell => {
-    cell.addEventListener('click', () => {
-        const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
-        if (cell.classList.contains('active')) {
-            deactivateCell(cellId);
-        } else {
-            activateCell(cellId);
-        }
-    });
-});
