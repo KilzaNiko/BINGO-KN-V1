@@ -27,6 +27,7 @@ function resetAllCells() {
 
 // Estado de las celdas activas
 const activeCells = new Set();
+let isVerticalTableActive = false;
 
 // Función para guardar el estado de las celdas activas
 function saveActiveCells() {
@@ -53,19 +54,15 @@ function checkTableLayout() {
     const horizontalTable = document.getElementById('horizontalTable');
     const verticalTable = document.getElementById('verticalTable');
 
-    if (windowWidth >= 768) {
+    if (windowWidth >= 768 && isVerticalTableActive) {
         horizontalTable.style.display = 'block';
         verticalTable.style.display = 'none';
         restoreActiveCells(); // Restaurar el estado de las celdas activas en la tabla horizontal
-    } else {
+        isVerticalTableActive = false;
+    } else if (windowWidth < 768 && !isVerticalTableActive) {
         horizontalTable.style.display = 'none';
         verticalTable.style.display = 'block';
         saveActiveCells(); // Guardar el estado de las celdas activas en la tabla vertical
+        isVerticalTableActive = true;
     }
 }
-
-// Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
-window.addEventListener('load', checkTableLayout);
-window.addEventListener('resize', checkTableLayout);
-
-
