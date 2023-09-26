@@ -68,47 +68,12 @@
             <div class="table-responsive-lg align-self-center bingo-table">
                 <table class="table">
                     <tbody>
-                        <tr>
-                            <td class="table-primary" id="B">B</td>
-                            <!-- Generar números del 1 al 15 -->
-                            <script>
-                                for (let i = 1; i <= 15; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <td class="table-success" id="I">I</td>
-                            <script>
-                                for (let i = 16; i <= 30; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <td class="table-warning" id="N">N</td>
-                            <script>
-                                for (let i = 31; i <= 45; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <td class="table-danger" id="G">G</td>
-                            <script>
-                                for (let i = 46; i <= 60; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
-                        <tr>
-                            <td class="table-info" id="O">O</td>
-                            <script>
-                                for (let i = 61; i <= 75; i++) {
-                                    document.write(`<td class="number" id="${i}">${i}</td>`);
-                                }
-                            </script>
-                        </tr>
+                        <script>
+                            // horizontal
+                            //generate_table();
+                            // vertical
+                            generate_vertical_table();
+                        </script>
                     </tbody>
                 </table>
 

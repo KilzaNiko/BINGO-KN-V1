@@ -52,8 +52,6 @@ function generate_vertical_table(){
     const v_data = get_data_table(false, false, false, true);
     const letterColors = ["primary", "success", "warning", "danger", "info"]
 
-    console.log(v_data)
-
     for (let i = 0; i < 16; i++) {
         document.write('<tr>');
         for (x = 0; x < 5; x++){
