@@ -54,9 +54,9 @@ function generate_vertical_table(){
 
     console.log(v_data)
 
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i < 16; i++) {
         document.write('<tr>');
-        for (x = 0; x <= 5; x++){
+        for (x = 0; x < 5; x++){
             if ( i === 1 ) {
                 console.log(x)
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
@@ -64,12 +64,13 @@ function generate_vertical_table(){
                 console.log("numero " + x)
                 document.write(`<td class="number">${v_data[eval(`F${i}`)[x]]}</td>`);
             }
-        
-        document.write('</tr>');
         }
+        document.write('</tr>');
     }
 }
 
 function get_vertical_numbers(){
     
 }
+
+
