@@ -30,29 +30,28 @@ function resetAllCells() {
 // Estado de las celdas activas
 const activeCells = new Set();
 
-// Función para guardar el estado de las celdas activas
-function saveActiveCells() {
-    activeCells.clear();
-    const numberCells = document.querySelectorAll('.number.active');
-    numberCells.forEach(cell => {
-        activeCells.add(cell.id);
-    });
+// Función para activar una celda en ambas tablas
+function activateCell(cellId) {
+    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
+    const verticalCell = document.getElementById(`vertical_${cellId}`);
+
+    if (horizontalCell && verticalCell) {
+        horizontalCell.classList.add('active');
+        verticalCell.classList.add('active');
+        activeCells.add(cellId);
+    }
 }
 
-// Función para restaurar el estado de las celdas activas en ambas tablas
-function restoreActiveCells() {
-    activeCells.forEach(cellId => {
-        const cellHorizontal = document.getElementById(`horizontal_${cellId}`);
-        const cellVertical = document.getElementById(`vertical_${cellId}`);
-        
-        if (cellHorizontal) {
-            cellHorizontal.classList.add('active');
-        }
-        
-        if (cellVertical) {
-            cellVertical.classList.add('active');
-        }
-    });
+// Función para desactivar una celda en ambas tablas
+function deactivateCell(cellId) {
+    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
+    const verticalCell = document.getElementById(`vertical_${cellId}`);
+
+    if (horizontalCell && verticalCell) {
+        horizontalCell.classList.remove('active');
+        verticalCell.classList.remove('active');
+        activeCells.delete(cellId);
+    }
 }
 
 // Función para verificar y cambiar entre las tablas según la resolución de la pantalla
@@ -64,12 +63,20 @@ function checkTableLayout() {
     if (windowWidth >= 768) {
         horizontalTable.style.display = 'block';
         verticalTable.style.display = 'none';
-        saveActiveCells()
     } else {
         horizontalTable.style.display = 'none';
         verticalTable.style.display = 'block';
-        saveActiveCells()
     }
-
-    restoreActiveCells();
 }
+
+// Agregar eventos clic a las celdas de ambas tablas
+document.querySelectorAll('.number').forEach(cell => {
+    cell.addEventListener('click', () => {
+        const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
+        if (cell.classList.contains('active')) {
+            deactivateCell(cellId);
+        } else {
+            activateCell(cellId);
+        }
+    });
+});
