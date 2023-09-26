@@ -56,13 +56,13 @@ function generate_vertical_table(){
 
     for (let i = 1; i <= 16; i++) {
         document.write('<tr>');
-        for (x = 1; x <= 5; x++){
+        for (x = 0; x <= 5; x++){
             if ( i === 1 ) {
                 console.log(x)
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
             }else{
                 console.log("numero " + x)
-                document.write(`<td class="number">${v_data[eval(`F${i}`)[x - 1]]}</td>`);
+                document.write(`<td class="number">${v_data[eval(`F${i}`)[x]]}</td>`);
             }
         
         document.write('</tr>');
