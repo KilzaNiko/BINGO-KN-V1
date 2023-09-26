@@ -27,7 +27,7 @@ function resetAllCells() {
 
 // Estado de las celdas activas
 const activeCells = new Set();
-let isVerticalTableActive = false;
+let isVerticalTableActive = true;
 
 // Función para guardar el estado de las celdas activas
 function saveActiveCells() {
