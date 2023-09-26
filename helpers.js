@@ -31,7 +31,7 @@ function get_data_table(all=true, a_letter=false, letter, v_data=false){
             }
             v_table_obj['F' + (i + 1)] = FX
         }
-        return v_table_obj;
+        return v_table_obj; 
     }
 }
 
@@ -54,14 +54,15 @@ function generate_vertical_table(){
 
     console.log(v_data)
 
-    for (let i = 1; i < 16; i++) {
+    for (let i = 0; i < 16; i++) {
         document.write('<tr>');
         for (x = 0; x < 5; x++){
-            if ( i === 1 ) {
+            if ( i === 0 ) {
                 console.log(x)
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
             }else{
-                console.log("numero " + x)
+                console.log("numero i - " + i)
+                console.log("numero x - " + x)
                 document.write(`<td class="number">${v_data[eval(`F${i}`)[x]]}</td>`);
             }
         }
