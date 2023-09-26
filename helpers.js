@@ -41,7 +41,6 @@ function deactivateCell(cellId) {
     }
 }
 
-
 // Función para verificar y cambiar entre las tablas según la resolución de la pantalla
 function checkTableLayout() {
     const windowWidth = window.innerWidth;
