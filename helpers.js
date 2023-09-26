@@ -1,21 +1,4 @@
-function getWindowsSize() {
-    const ancho = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const alto = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    
-    return [ancho, alto];
-}
-
-// Agregar eventos clic a las celdas de ambas tablas
-document.querySelectorAll('.bingo-cell').forEach(cell => {
-    cell.addEventListener('click', () => {
-        const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
-        if (cell.classList.contains('active')) {
-            deactivateCell(cellId);
-        } else {
-            activateCell(cellId);
-        }
-    });
-});
+const activeCells = new Set();
 
 // Función para activar una celda en ambas tablas
 function activateCell(cellId) {
@@ -48,10 +31,28 @@ function checkTableLayout() {
     const verticalTable = document.getElementById('verticalTable');
 
     if (windowWidth >= 768) {
-        horizontalTable.style.display = 'block';
+        horizontalTable.style.display = 'table';
         verticalTable.style.display = 'none';
     } else {
         horizontalTable.style.display = 'none';
-        verticalTable.style.display = 'block';
+        verticalTable.style.display = 'table';
     }
 }
+
+// Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
+window.addEventListener('load', checkTableLayout);
+window.addEventListener('resize', checkTableLayout);
+
+// Agregar eventos clic a las celdas de ambas tablas
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.number').forEach(cell => {
+        cell.addEventListener('click', () => {
+            const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
+            if (cell.classList.contains('active')) {
+                deactivateCell(cellId);
+            } else {
+                activateCell(cellId);
+            }
+        });
+    });
+});
