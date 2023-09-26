@@ -105,26 +105,6 @@
             });
         });
 
-        const undoStack = [];
-        function changeCellState() {
-            const input = document.getElementById('cellInput').value;
-            const cellId = input.replace(/\D/g, ''); // Obtener solo los dígitos del input
-            const cell = document.getElementById(cellId);
-
-            if (cell) {
-                cell.classList.toggle('active'); // Cambiar el estado
-                undoStack.push(cellId); // Agregar a la pila para deshacer
-            }
-
-            document.getElementById('cellInput').value = ''; // Limpiar el input 
-        }
-
-        function resetAllCells() {
-            numberCells.forEach(cell => {
-                cell.classList.remove('active'); // Restablecer todas las celdas
-            });
-        }
-
         // Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
         window.addEventListener('load', checkTableLayout);
         window.addEventListener('resize', checkTableLayout);
