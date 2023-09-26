@@ -52,9 +52,9 @@ function generate_vertical_table(){
     const v_data = get_data_table(false, false, false, true);
     const letterColors = ["primary", "success", "warning", "danger", "info"]
 
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i < 16; i++) {
         document.write('<tr>');
-        for (x = 0; x <= 5; x++){
+        for (x = 0; x < 5; x++){
             if ( i === 1 ) {
                 console.log(x)
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
