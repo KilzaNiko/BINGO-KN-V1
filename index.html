@@ -68,18 +68,23 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="table-responsive-lg align-self-center bingo-table">
-                <div id="tables-container">
-                    <table class="table" id="horizontalTable">
+
+                <div id="horizontalTable">
+                    <table class="table">
                         <script>
                             generate_table();
                         </script>
                     </table>
-                    <table class="table" id="verticalTable">
+                </div>
+                
+                <div id="verticalTable">
+                    <table class="table">
                         <script>
                             generate_vertical_table();
                         </script>
                     </table>
                 </div>
+            
                 <div class="input-group">
                     <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
                     <button type="button" class="btn btn-success" onclick="changeCellState()">Cambiar estado</button>
