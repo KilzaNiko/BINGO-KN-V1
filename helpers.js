@@ -58,16 +58,20 @@ function checkTableLayout() {
     const verticalTable = document.getElementById('verticalTable');
 
     if (windowWidth >= 768 && !hasLoaded || isVerticalTableActive) {
-        horizontalTable.style.display = 'block';
-        verticalTable.style.display = 'none';
-        restoreActiveCells(); // Restaurar el estado de las celdas activas en la tabla horizontal
-        isVerticalTableActive = false;
-        hasLoaded = true;
-    } else if (!hasLoaded || !isVerticalTableActive) {
-        horizontalTable.style.display = 'none';
-        verticalTable.style.display = 'block';
-        saveActiveCells(); // Guardar el estado de las celdas activas en la tabla vertical
-        isVerticalTableActive = true;
-        hasLoaded = true;
+        if (!hasLoaded || isVerticalTableActive) {
+            horizontalTable.style.display = 'block';
+            verticalTable.style.display = 'none';
+            restoreActiveCells(); // Restaurar el estado de las celdas activas en la tabla horizontal
+            isVerticalTableActive = false;
+            hasLoaded = true;
+        }
+    } else {
+        if (!hasLoaded || !isVerticalTableActive) {
+            horizontalTable.style.display = 'none';
+            verticalTable.style.display = 'block';
+            saveActiveCells(); // Guardar el estado de las celdas activas en la tabla vertical
+            isVerticalTableActive = true;
+            hasLoaded = true;
+        }
     }
 }
