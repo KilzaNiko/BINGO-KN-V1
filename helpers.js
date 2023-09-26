@@ -64,13 +64,12 @@ function generate_vertical_table(){
                 console.log("numero " + x)
                 document.write(`<td class="number">${v_data[eval(`F${i}`)[x - 1]]}</td>`);
             }
-        }
+        
         document.write('</tr>');
+        }
     }
 }
 
 function get_vertical_numbers(){
     
 }
-
-
