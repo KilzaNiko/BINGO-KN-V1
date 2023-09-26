@@ -54,7 +54,7 @@ function generate_vertical_table(){
 
     console.log(v_data)
 
-    for (let i = 1; i < 16; i++) {
+    for (let i = 1; i <= 16; i++) {
         document.write('<tr>');
         for (x = 0; x < 5; x++){
             if ( i === 1 ) {
