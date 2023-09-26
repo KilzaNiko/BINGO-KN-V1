@@ -27,7 +27,6 @@ function resetAllCells() {
 
 
 
-
 // Estado de las celdas activas
 const activeCells = new Set();
 
