@@ -27,10 +27,9 @@ function resetAllCells() {
 
 
 
+
 // Estado de las celdas activas
 const activeCells = new Set();
-let isVerticalTableActive = false;
-let hasLoaded = false;
 
 // Función para guardar el estado de las celdas activas
 function saveActiveCells() {
@@ -41,12 +40,18 @@ function saveActiveCells() {
     });
 }
 
-// Función para restaurar el estado de las celdas activas
+// Función para restaurar el estado de las celdas activas en ambas tablas
 function restoreActiveCells() {
     activeCells.forEach(cellId => {
-        const cell = document.getElementById(cellId);
-        if (cell) {
-            cell.classList.add('active');
+        const cellHorizontal = document.getElementById(`horizontal_${cellId}`);
+        const cellVertical = document.getElementById(`vertical_${cellId}`);
+        
+        if (cellHorizontal) {
+            cellHorizontal.classList.add('active');
+        }
+        
+        if (cellVertical) {
+            cellVertical.classList.add('active');
         }
     });
 }
@@ -57,21 +62,13 @@ function checkTableLayout() {
     const horizontalTable = document.getElementById('horizontalTable');
     const verticalTable = document.getElementById('verticalTable');
 
-    if (windowWidth >= 768 && !hasLoaded || isVerticalTableActive) {
-        if (!hasLoaded || isVerticalTableActive) {
-            horizontalTable.style.display = 'block';
-            verticalTable.style.display = 'none';
-            restoreActiveCells(); // Restaurar el estado de las celdas activas en la tabla horizontal
-            isVerticalTableActive = false;
-            hasLoaded = true;
-        }
+    if (windowWidth >= 768) {
+        horizontalTable.style.display = 'block';
+        verticalTable.style.display = 'none';
     } else {
-        if (!hasLoaded || !isVerticalTableActive) {
-            horizontalTable.style.display = 'none';
-            verticalTable.style.display = 'block';
-            saveActiveCells(); // Guardar el estado de las celdas activas en la tabla vertical
-            isVerticalTableActive = true;
-            hasLoaded = true;
-        }
+        horizontalTable.style.display = 'none';
+        verticalTable.style.display = 'block';
     }
+
+    restoreActiveCells();
 }
