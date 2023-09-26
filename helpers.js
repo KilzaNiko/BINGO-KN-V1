@@ -60,7 +60,8 @@ function generate_vertical_table(){
             if ( i === 0 ) {
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
             }else{
-                document.write(`<td class="number">${v_data[`F${i}`[x]]}</td>`);
+                console.log("numero x - " + x)
+                document.write(`<td class="number" id="">${v_data[`F${i}`[x]]}</td>`);
             }
         }
         document.write('</tr>');
