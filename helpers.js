@@ -64,9 +64,11 @@ function checkTableLayout() {
     if (windowWidth >= 768) {
         horizontalTable.style.display = 'block';
         verticalTable.style.display = 'none';
+        saveActiveCells()
     } else {
         horizontalTable.style.display = 'none';
         verticalTable.style.display = 'block';
+        saveActiveCells()
     }
 
     restoreActiveCells();
