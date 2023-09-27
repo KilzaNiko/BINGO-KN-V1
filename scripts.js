@@ -41,7 +41,7 @@ function generate_table(){
         const numbers = get_data_table(false, false, letter);
         document.write(`<tr><td class="table-${letterColors[letter]}" id="${letter}">${letter}</td>`);
         numbers.forEach((number) => {
-            document.write(`<td class="number bingo-cell" id="${number}">${number}</td>`);
+            document.write(`<td class="number bingo-cell" id="horizontal_${number}">${number}</td>`);
         });
         document.write('</tr>');
     });
@@ -57,7 +57,7 @@ function generate_vertical_table(){
             if ( i === 0 ) {
                 document.write(`<td class="table-${letterColors[x]}" id="${v_data["BINGO"][x]}">${v_data["BINGO"][x]}</td>`);
             }else{
-                document.write(`<td class="number bingo-cell" id="${v_data[`F${i}`][x]}">${v_data[`F${i}`][x]}</td>`);
+                document.write(`<td class="number bingo-cell" id="vertical_${v_data[`F${i}`][x]}">${v_data[`F${i}`][x]}</td>`);
             }
         }
         document.write('</tr>');
