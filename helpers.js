@@ -62,7 +62,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
         cell.addEventListener('click', () => {
             const cellId = cell.id.replace('h_', '').replace('v_', '');
-            changeActiveTESTA(cellId, !cell.classList.contains('active'));
+            //changeActiveTESTA(cellId, !cell.classList.contains('active'));
+            if (cell.classList.contains('active')) {
+                changeActiveTESTA(cellId, true);
+            } else {
+                changeActiveTESTA(cellId, false);
+            }
         });
     });
 });
