@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (cell.classList.contains('active')) {
                 deactivateCell(cellId);
             } else {
-                console.log("paso x")
                 activateCell(cellId);
             }
         });
