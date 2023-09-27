@@ -26,6 +26,26 @@ function deactivateCell(cellId) {
     }
 }
 
+// Función para activar una celda en ambas tablas
+function activateCellTESTA(cellId) {
+    console.log("a");
+    const cell = document.getElementById(`cell_${cellId}`);
+    if (cell) {
+        cell.classList.add('active');
+        activeCells.add(cellId);
+    }
+}
+
+// Función para desactivar una celda en ambas tablas
+function deactivateCellTESTA(cellId) {
+    console.log("b");
+    const cell = document.getElementById(`cell_${cellId}`);
+    if (cell) {
+        cell.classList.remove('active');
+        activeCells.delete(cellId);
+    }
+}
+
 // Función para verificar y cambiar entre las tablas según la resolución de la pantalla
 function checkTableLayout() {
     const windowWidth = window.innerWidth;
@@ -45,11 +65,11 @@ function checkTableLayout() {
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
         cell.addEventListener('click', () => {
-            const cellId = cell.id.replace('horizontal_', '').replace('vertical_', '');
+            const cellId = cell.id.replace('cell_', '');
             if (cell.classList.contains('active')) {
-                deactivateCell(cellId);
+                deactivateCellTESTA(cellId);
             } else {
-                activateCell(cellId);
+                activateCellTESTA(cellId);
             }
         });
     });
