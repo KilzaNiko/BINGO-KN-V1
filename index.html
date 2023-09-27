@@ -70,7 +70,7 @@
             <div class="table-responsive-lg align-self-center bingo-table">
 
                 <div id="horizontalTable">
-                    <table class="table bingo-cell">
+                    <table class="table">
                         <script>
                             generate_table();
                         </script>
@@ -78,7 +78,7 @@
                 </div>
                 
                 <div id="verticalTable">
-                    <table class="table bingo-cell">
+                    <table class="table">
                         <script>
                             generate_vertical_table();
                         </script>
@@ -93,11 +93,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
-        window.addEventListener('load', checkTableLayout);
-        window.addEventListener('resize', checkTableLayout);
-    </script>
 </body>
 </html>

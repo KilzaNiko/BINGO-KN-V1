@@ -2,6 +2,7 @@ const activeCells = new Set();
 
 // Función para activar una celda en ambas tablas
 function activateCell(cellId) {
+    console.log("a");
     const horizontalCell = document.getElementById(`horizontal_${cellId}`);
     const verticalCell = document.getElementById(`vertical_${cellId}`);
 
@@ -14,6 +15,7 @@ function activateCell(cellId) {
 
 // Función para desactivar una celda en ambas tablas
 function deactivateCell(cellId) {
+    console.log("b");
     const horizontalCell = document.getElementById(`horizontal_${cellId}`);
     const verticalCell = document.getElementById(`vertical_${cellId}`);
 
@@ -39,10 +41,6 @@ function checkTableLayout() {
     }
 }
 
-// Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
-window.addEventListener('load', checkTableLayout);
-window.addEventListener('resize', checkTableLayout);
-
 // Agregar eventos clic a las celdas de ambas tablas
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
@@ -51,8 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (cell.classList.contains('active')) {
                 deactivateCell(cellId);
             } else {
+                console.log("paso x")
                 activateCell(cellId);
             }
         });
     });
 });
+
+// Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
+window.addEventListener('load', checkTableLayout);
+window.addEventListener('resize', checkTableLayout);
