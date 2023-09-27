@@ -20,14 +20,9 @@ function changeActive(cellId, active) {
 
 // Función para activar una celda en ambas tablas
 function changeActiveTESTA(cellId, active) {
-    const horizontalCell = document.getElementById(`h_${cellId}`);
-    const verticalCell = document.getElementById(`v_${cellId}`);
-    const cellToModify = active ? horizontalCell : verticalCell;
-
-    if (cellToModify) {
-        cellToModify.classList[active ? 'add' : 'remove']('active');
-        active ? activeCells.add(cellId) : activeCells.delete(cellId);
-    }
+    document.getElementById(`h_${cellId}`).classList[active ? 'add' : 'remove']('active');
+    document.getElementById(`v_${cellId}`).classList[active ? 'add' : 'remove']('active');
+    active ? activeCells.add(cellId) : activeCells.delete(cellId);
 }
 
 // Función para desactivar una celda en ambas tablas
@@ -62,12 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
         cell.addEventListener('click', () => {
             const cellId = cell.id.replace('h_', '').replace('v_', '');
-            //changeActiveTESTA(cellId, !cell.classList.contains('active'));
-            if (cell.classList.contains('active')) {
-                changeActiveTESTA(cellId, true);
-            } else {
-                changeActiveTESTA(cellId, false);
-            }
+            changeActiveTESTA(cellId, !cell.classList.contains('active'));
         });
     });
 });
