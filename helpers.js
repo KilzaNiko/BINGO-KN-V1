@@ -2,7 +2,6 @@ const activeCells = new Set();
 
 // Función para activar una celda en ambas tablas
 function activateCell(cellId) {
-    console.log("a");
     const horizontalCell = document.getElementById(`horizontal_${cellId}`);
     const verticalCell = document.getElementById(`vertical_${cellId}`);
 
@@ -15,33 +14,12 @@ function activateCell(cellId) {
 
 // Función para desactivar una celda en ambas tablas
 function deactivateCell(cellId) {
-    console.log("b");
     const horizontalCell = document.getElementById(`horizontal_${cellId}`);
     const verticalCell = document.getElementById(`vertical_${cellId}`);
 
     if (horizontalCell && verticalCell) {
         horizontalCell.classList.remove('active');
         verticalCell.classList.remove('active');
-        activeCells.delete(cellId);
-    }
-}
-
-// Función para activar una celda en ambas tablas
-function activateCellTESTA(cellId) {
-    console.log("a");
-    const cell = document.getElementById(`cell_${cellId}`);
-    if (cell) {
-        cell.classList.add('active');
-        activeCells.add(cellId);
-    }
-}
-
-// Función para desactivar una celda en ambas tablas
-function deactivateCellTESTA(cellId) {
-    console.log("b");
-    const cell = document.getElementById(`cell_${cellId}`);
-    if (cell) {
-        cell.classList.remove('active');
         activeCells.delete(cellId);
     }
 }
@@ -65,11 +43,11 @@ function checkTableLayout() {
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
         cell.addEventListener('click', () => {
-            const cellId = cell.id.replace('cell_', '');
+            const cellId = cell.id.replace('h_', '').replace('v_', '');
             if (cell.classList.contains('active')) {
-                deactivateCellTESTA(cellId);
+                deactivateCell(cellId);
             } else {
-                activateCellTESTA(cellId);
+                activateCell(cellId);
             }
         });
     });
