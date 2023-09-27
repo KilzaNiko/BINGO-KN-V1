@@ -31,11 +31,11 @@ function checkTableLayout() {
     const verticalTable = document.getElementById('verticalTable');
 
     if (windowWidth >= 768) {
-        horizontalTable.style.display = 'table';
+        horizontalTable.style.display = 'block';
         verticalTable.style.display = 'none';
     } else {
         horizontalTable.style.display = 'none';
-        verticalTable.style.display = 'table';
+        verticalTable.style.display = 'block';
     }
 }
 
