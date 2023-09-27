@@ -1,21 +1,39 @@
 const activeCells = new Set();
 
 // Función para activar una celda en ambas tablas
-function activateCell(cellId) {
-    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
-    const verticalCell = document.getElementById(`vertical_${cellId}`);
+function changeActive(cellId, active) {
+    const horizontalCell = document.getElementById(`h_${cellId}`);
+    const verticalCell = document.getElementById(`v_${cellId}`);
 
     if (horizontalCell && verticalCell) {
-        horizontalCell.classList.add('active');
-        verticalCell.classList.add('active');
-        activeCells.add(cellId);
+        if(active){
+            horizontalCell.classList.add('active');
+            verticalCell.classList.add('active');
+            activeCells.add(cellId);
+        }else{
+            horizontalCell.classList.remove('active');
+            verticalCell.classList.remove('active');
+            activeCells.delete(cellId);
+        }
+    }
+}
+
+// Función para activar una celda en ambas tablas
+function changeActiveTESTA(cellId, active) {
+    const horizontalCell = document.getElementById(`h_${cellId}`);
+    const verticalCell = document.getElementById(`v_${cellId}`);
+    const cellToModify = active ? horizontalCell : verticalCell;
+
+    if (cellToModify) {
+        cellToModify.classList[active ? 'add' : 'remove']('active');
+        active ? activeCells.add(cellId) : activeCells.delete(cellId);
     }
 }
 
 // Función para desactivar una celda en ambas tablas
 function deactivateCell(cellId) {
-    const horizontalCell = document.getElementById(`horizontal_${cellId}`);
-    const verticalCell = document.getElementById(`vertical_${cellId}`);
+    const horizontalCell = document.getElementById(`h_${cellId}`);
+    const verticalCell = document.getElementById(`v_${cellId}`);
 
     if (horizontalCell && verticalCell) {
         horizontalCell.classList.remove('active');
@@ -44,11 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.number').forEach(cell => {
         cell.addEventListener('click', () => {
             const cellId = cell.id.replace('h_', '').replace('v_', '');
-            if (cell.classList.contains('active')) {
-                deactivateCell(cellId);
-            } else {
-                activateCell(cellId);
-            }
+            changeActiveTESTA(cellId, !cell.classList.contains('active'));
         });
     });
 });
