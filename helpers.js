@@ -20,8 +20,11 @@ function changeActive(cellId, active) {
 
 // Función para activar una celda en ambas tablas
 function changeActiveTESTA(cellId, active) {
-    document.getElementById(`h_${cellId}`).classList[active ? 'add' : 'remove']('active');
-    document.getElementById(`v_${cellId}`).classList[active ? 'add' : 'remove']('active');
+    const hCell = document.getElementById(`h_${cellId}`);
+    const vCell = document.getElementById(`v_${cellId}`);
+
+    hCell.classList[active ? 'add' : 'remove']('active');
+    vCell.classList[active ? 'add' : 'remove']('active');
     active ? activeCells.add(cellId) : activeCells.delete(cellId);
 }
 
