@@ -50,46 +50,33 @@
         /* Estilo para el grupo de entrada de Bootstrap */
         .input-group {
             margin-top: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
-        }
-
-        /* Estilo para el contenedor del grupo de entrada */
-        .input-container {
-            text-align: center;
-            margin: 5% 0;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 10px;
         }
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="table-responsive-lg align-self-center bingo-table">
-
-                <div id="horizontalTable">
-                    <table class="table">
-                        <script>
-                            generate_table();
-                        </script>
-                    </table>
-                </div>
-                
-                <div id="verticalTable">
-                    <table class="table">
-                        <script>
-                            generate_vertical_table();
-                        </script>
-                    </table>
-                </div>
-            
-                <div class="input-group">
-                    <input type="text" id="cellInput" class="form-control" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
-                    <button type="button" class="btn btn-success" onclick="changeCellState()">Cambiar estado</button>
-                    <button type="button" class="btn btn-danger" onclick="resetAllCells()">Restablecer Tabla</button>
-                </div>
+    <div class="container justify-content-center">
+        <div class="row">
+            <div id="horizontalTable">
+                <table class="table">
+                    <script>
+                        generate_table();
+                    </script>
+                </table>
+            </div>
+            <div id="verticalTable">
+                <table class="table">
+                    <script>
+                        generate_vertical_table();
+                    </script>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group">
+                <input type="text" id="cellInput" class="form-control col col-2" placeholder="Ingrese número" aria-label="Ingrese un número entre el 1 y el 75">
+                <button type="button" class="btn btn-success col col-3" onclick="changeCellState()">Cambiar estado</button>
+                <button type="button" class="btn btn-danger col col-3" onclick="resetAllCells()">Restablecer Tabla</button>
             </div>
         </div>
     </div>

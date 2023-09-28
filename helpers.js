@@ -18,18 +18,6 @@ function changeActive(cellId, active) {
     }
 }
 
-// Función para desactivar una celda en ambas tablas
-function deactivateCell(cellId) {
-    const horizontalCell = document.getElementById(`h_${cellId}`);
-    const verticalCell = document.getElementById(`v_${cellId}`);
-
-    if (horizontalCell && verticalCell) {
-        horizontalCell.classList.remove('active');
-        verticalCell.classList.remove('active');
-        activeCells.delete(cellId);
-    }
-}
-
 // Función para verificar y cambiar entre las tablas según la resolución de la pantalla
 function checkTableLayout() {
     const windowWidth = window.innerWidth;
