@@ -43,6 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+// Obtener referencias a elementos relevantes
+const magnifier = document.getElementById('magnifier');
+const magnifierContent = document.getElementById('magnifier-content');
+const tableNumbers = document.querySelectorAll('.number');
+
+// Función para mostrar la lupa con el número
+function showMagnifier(number, event) {
+  magnifierContent.textContent = number;
+  magnifier.style.left = `${event.pageX + 10}px`;
+  magnifier.style.top = `${event.pageY - 30}px`;
+  magnifier.style.display = 'block';
+}
+
+// Función para ocultar la lupa
+function hideMagnifier() {
+  magnifier.style.display = 'none';
+}
+
 // Ejecuta la función al cargar la página y cuando cambie el tamaño de la ventana
 window.addEventListener('load', checkTableLayout);
 window.addEventListener('resize', checkTableLayout);
