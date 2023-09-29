@@ -63,3 +63,7 @@ function generate_vertical_table(){
         document.write('</tr>');
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    feather.replace();
+});
