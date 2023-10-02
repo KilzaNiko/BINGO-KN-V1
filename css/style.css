@@ -1,0 +1,76 @@
+.container {
+    min-width: 220px;
+    min-height: 720px;
+}
+
+/* CSS para aplicar un efecto de desenfoque solo al fondo */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: unset;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Para evitar que el fondo desenfocado se desborde */
+    position: relative; /* Importante para el posicionamiento */
+}
+
+body::before {
+    content: "";
+    background-image: url("../images/background.jpg");
+    filter: blur(10px); /* Ajusta el valor según el grado de desenfoque deseado */
+    position: absolute;
+    top: -10px; /* Desplaza el pseudo-elemento 10 píxeles hacia arriba para cubrir los bordes */
+    left: -10px; /* Desplaza el pseudo-elemento 10 píxeles hacia la izquierda para cubrir los bordes */
+    width: calc(100% + 20px); /* Aumenta el ancho para cubrir los bordes */
+    height: calc(100% + 20px); /* Aumenta la altura para cubrir los bordes */
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra negra en los bordes */
+}
+
+
+.table {
+    margin: auto;
+    background-color: #bdbdb969; /* Fondo de la tabla transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+td {
+    border: 1px solid #dddddd; /* Borde gris claro */
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo para los números */
+td.number {
+    background-color: #ffffff; /* Fondo blanco por defecto */
+}
+
+/* Estilo para el número en estado activo */
+td.active {
+    background-color: #383837; /* Fondo amarillo en estado activo */
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Estilo para el grupo de entrada de Bootstrap */
+.input-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-control .btn-change .btn-reset{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra a la caja */
+    border-radius: 10px; /* Mantiene las esquinas redondeadas */
+}
+
+/* Estilo para ocultar texto en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .btn .text {
+        display: none;
+    }
+}

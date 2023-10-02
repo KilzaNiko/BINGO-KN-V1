@@ -1,0 +1,45 @@
+/* Personalización de SweetAlert2 */
+
+/* Fondo del Toast */
+.swal2-toast {
+    background-color: #333333eb !important; /* Cambia el color de fondo del toast */
+    color: #fff; /* Cambia el color del texto en el toast */
+}
+
+/* Fondo de la Ventana Emergente */
+.swal2-popup {
+    background-color: #333333eb !important; /* Cambia el color de fondo de la ventana emergente */
+    color: #fff; /* Cambia el color del texto en la ventana emergente */
+}
+
+/* Título de la Ventana Emergente */
+.swal2-title {
+    color: #fff; /* Cambia el color del título de la ventana emergente */
+}
+
+/* Icono en la Ventana Emergente */
+.swal2-icon {
+    color: #ffe600 !important; /* Cambia el color del icono en la ventana emergente */
+}
+
+/* Botón de Confirmación */
+.swal2-confirm {
+    background-color: #00f7ff; /* Cambia el color de fondo del botón de confirmación */
+    color: #333; /* Cambia el color del texto del botón de confirmación */
+}
+
+/* Botón de Cancelación */
+.swal2-cancel {
+    background-color: #999; /* Cambia el color de fondo del botón de cancelación */
+    color: #fff; /* Cambia el color del texto del botón de cancelación */
+}
+
+/* Estilo de Fondo para los Botones (en la versión 11.7.3) */
+.swal2-actions {
+    background-color: #333333eb !important; /* Cambia el estilo de fondo para los botones */
+}
+
+/* Estilo de Bordes para los Botones (en la versión 11.7.3) */
+.swal2-actions {
+    border-color: #fff !important; /* Cambia el estilo de bordes para los botones */
+}
