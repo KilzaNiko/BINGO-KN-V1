@@ -6,17 +6,44 @@ function changeActive(cellId, active) {
     const verticalCell = document.getElementById(`v_${cellId}`);
 
     if (horizontalCell && verticalCell) {
-        if(active){
-            horizontalCell.classList.add('active');
-            verticalCell.classList.add('active');
-            activeCells.add(cellId);
-        }else{
-            horizontalCell.classList.remove('active');
-            verticalCell.classList.remove('active');
-            activeCells.delete(cellId);
+        if (active) {
+
+            // Utiliza SweetAlert2 para mostrar una advertencia
+            Swal.fire({
+                title: '¿Activar numero ' + cellId + '?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, activar',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#298f64'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    horizontalCell.classList.add('active');
+                    verticalCell.classList.add('active');
+                    activeCells.add(cellId);
+                }
+            });
+        } else {
+            // Utiliza SweetAlert2 para mostrar una advertencia
+            Swal.fire({
+                title: '¿Desactivar numero ' + cellId + '?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, desactivar',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#e23030'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, se quita el activo en la celda
+                    horizontalCell.classList.remove('active');
+                    verticalCell.classList.remove('active');
+                    activeCells.delete(cellId);
+                }
+            });
         }
     }
 }
+
 
 function buttonChangeActive(){
     const cellInput = document.getElementById('cellInput');

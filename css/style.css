@@ -3,6 +3,16 @@
     /* min-height: 720px; */
 }
 
+.container-principal {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Centra en Y */
+    align-items: center; /* Centra en X */
+    justify-content: center; /* Centra en Y */
+    min-height: 100vh; /* Garantiza que ocupe al menos toda la altura de la ventana */
+}
+
 /* Aplica flexbox para centrar el contenido en X y Y */
 body {
     margin: 0;
@@ -30,7 +40,7 @@ body::before {
 .table {
     margin: auto;
     background-color: #bdbdb969; /* Fondo de la tabla transparente */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados */       
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
 }
 
@@ -63,11 +73,5 @@ td.active {
 @media (max-width: 768px) {
     .btn .text {
         display: none;
-    }
-}
-
-@media (min-width: 768px) {
-    body {
-        transform: scale(1); /* Puedes ajustar el valor para controlar el zoom */
     }
 }

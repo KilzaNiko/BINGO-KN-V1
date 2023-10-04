@@ -17,34 +17,36 @@
 <body>
     <div class="container justify-content-center">
         <div class="row">
-            <div id="horizontalTable">
-                <table class="table">
-                    <script>
-                        generate_table();
-                    </script>
-                </table>
+            <div class="row">
+                <div id="horizontalTable">
+                    <table class="table">
+                        <script>
+                            generate_table();
+                        </script>
+                    </table>
+                </div>
+                <div id="verticalTable">
+                    <table class="table">
+                        <script>
+                            generate_vertical_table();
+                        </script>
+                    </table>
+                </div>
             </div>
-            <div id="verticalTable">
-                <table class="table">
-                    <script>
-                        generate_vertical_table();
-                    </script>
-                </table>
+            <div class="row">
+                <div class="input-group">
+                    <input type="text" id="cellInput" class="form-control col-6" placeholder="Número" aria-label="Ingrese un número entre el 1 y el 75" pattern="^(?:[1-9]|[1-6][0-9]|75)$">
+                    <button type="button" id="changeStateButton" class="btn-change btn btn-success col-3" onclick="buttonChangeActive()">
+                        <span class="text d-md-block d-none">Cambiar estado</span>
+                        <i class="icon d-md-none" data-feather="plus-circle"></i>
+                    </button>
+                    <button type="button" class="btn-reset btn btn-danger col-3" onclick="resetTable()">
+                        <span class="text d-md-block d-none">Restablecer Tabla</span>
+                        <i class="icon d-md-none" data-feather="minus-circle"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-group">
-                <input type="text" id="cellInput" class="form-control col-6" placeholder="Número" aria-label="Ingrese un número entre el 1 y el 75" pattern="^(?:[1-9]|[1-6][0-9]|75)$">
-                <button type="button" id="changeStateButton" class="btn-change btn btn-success col-3" onclick="buttonChangeActive()">
-                    <span class="text d-md-block d-none">Cambiar estado</span>
-                    <i class="icon d-md-none" data-feather="plus-circle"></i>
-                </button>
-                <button type="button" class="btn-reset btn btn-danger col-3" onclick="resetTable()">
-                    <span class="text d-md-block d-none">Restablecer Tabla</span>
-                    <i class="icon d-md-none" data-feather="minus-circle"></i>
-                </button>
-            </div>
-        </div>
+        </div>    
     </div>
 </body>
 </html>
