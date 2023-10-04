@@ -42,4 +42,7 @@
 /* Estilo de Bordes para los Botones (en la versión 11.7.3) */
 .swal2-actions {
     border-color: #fff !important; /* Cambia el estilo de bordes para los botones */
+    background-color: #298f64;
 }
+
+
